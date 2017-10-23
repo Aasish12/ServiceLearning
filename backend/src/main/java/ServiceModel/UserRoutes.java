@@ -1,34 +1,42 @@
 package ServiceModel;
 
 import ServiceModel.Types.UserType;
+import ServiceInterface.UserServices;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+import java.util.ArrayList;
 
+/*
+* User specific API route definitions.
+* GOAL: Define routes, call services to return data.
+*
+* Kofi Collins-Sibley
+* */
 @Path("/users")
 public class UserRoutes {
+    private UserServices services = new UserServices();
 
     /* Get routes */
     @GET
     @Path("/all")
-    @Produces(MediaType.TEXT_PLAIN)
-    public String getAllUsers() {
-        return "All Users";
+    @Produces(MediaType.APPLICATION_JSON)
+    public ArrayList<UserType> getAllUsers() {
+        return services.GetAllUsers();
     }
 
     @GET
     @Path("/search/{searchText}")
     @Produces(MediaType.APPLICATION_JSON)
-    public UserType searchUsers(@PathParam("searchText") String searchText) {
-        return new UserType(0, 0, searchText, searchText, searchText);
+    public ArrayList<UserType> searchUsers(@PathParam("searchText") String searchText) {
+        return services.SearchUsers(searchText);
     }
 
     @GET
     @Path("/getById/{studentId}")
-    @Produces(MediaType.TEXT_PLAIN)
-    public String getUserById(@PathParam("studentId") String studentId) {
-        return String.format("Student: %s", studentId);
+    @Produces(MediaType.APPLICATION_JSON)
+    public UserType getUserById(@PathParam("studentId") int userId) {
+        return services.GetById(userId);
     }
 
     @GET
@@ -42,18 +50,14 @@ public class UserRoutes {
     @POST
     @Path("/post")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response postNewUser(UserType user) {
-        String output = user.toString();
-
-        return Response.status(200).entity(output).build();
+    public void postNewUser(UserType user) {
+        services.PostUser(user);
     }
 
     @PUT
     @Path("/put")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response putUser(UserType user) {
-        String output = user.toString();
-
-        return Response.status(200).entity(output).build();
+    public void putUser(UserType user) {
+        services.PutUser(user);
     }
 }
