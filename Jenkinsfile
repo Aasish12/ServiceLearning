@@ -15,8 +15,9 @@ pipeline {
 				echo "testing..."
 			}
 		}
+	}
 
-		post {
+	post {
 			always {
 				echo "saveing results..."
 			}
@@ -27,5 +28,4 @@ pipeline {
 				echo "failure..."
 			}
 		}
-	}
 }
