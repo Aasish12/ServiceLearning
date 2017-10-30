@@ -6,20 +6,24 @@ pipeline {
 	stages {
 		stage('Build') {
 			steps {
-				echo "building..."
+				echo "Building..."
+				sh 'mvn clean'
 			}
 		}
 
 		stage('Test') {
 			steps {
 				echo "testing..."
+				sh 'mvn test || true'
+				junit '**/target/*.xml'
 			}
 		}
 	}
 
 	post {
 			always {
-				echo "saveing results..."
+				echo "saving results..."
+				archive 'target/**/*.jar'
 			}
 			success {
 				echo "success..."
