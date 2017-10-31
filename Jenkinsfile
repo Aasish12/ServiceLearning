@@ -27,13 +27,11 @@ pipeline {
 			}
 			success {
 				echo "success..."
-				slackSend (color: '#00FF00', message: "SUCCESSFUL: Job
-'${env.JOB_NAME}")
+				slackSend (color: '#00FF00', message: "SUCCESSFUL: Job'${env.JOB_NAME}")
 			}
 			failure {
 				echo "failure..."
-				slackSend (color: '#FF0000', message: "FAILED: Job
-'${env.JOB_NAME}")
+				slackSend (color: '#FF0000', message: "FAILED: Job'${env.JOB_NAME}")
 			}
 		}
 }
