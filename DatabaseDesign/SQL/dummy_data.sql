@@ -34,6 +34,8 @@ INSERT INTO `Partners` (`FirstName`,`LastName`,`Phone`) VALUES
 ("Delilah","Harding","2074807993"),
 ("Joan","Livingston","1695312657");
 
+select * from test.Partners;
+
 -- Locations Dummy Data (creates 30 entries)
 
 INSERT INTO `Locations` (`City`,`State`,`AddressLine1`,`AddressLine2`,`Country`,`Zipcode`,`isPrimary`) VALUES 
@@ -67,6 +69,50 @@ INSERT INTO `Locations` (`City`,`State`,`AddressLine1`,`AddressLine2`,`Country`,
 ("Knoxville","TN","857 Quam. Av.","erat, eget tincidunt dui","Iran","606788",0),
 ("Boston","MA","263-1692 Consectetuer Road","iaculis","Portugal","H9I 4KN",0),
 ("Racine","WI","Ap #608-8919 Pulvinar Rd.","vitae sodales nisi magna","Uruguay","43598-845",1);
+
+-- Roles Dummy Data (creates 4 entries)
+
+INSERT INTO `Roles` (`Description`) VALUES 
+("mi enim, condimentum eget,"),
+("eros. Proin ultrices. Duis"),
+("Nunc mauris sapien, cursus"),
+("eu eros. Nam consequat");
+
+-- Positions Dummy Data (Creates 30 entries)
+
+INSERT INTO `Positions` (`Title`,`Description`,`LocationID`,`PartnerID`) VALUES 
+("Aenean euismod mauris","gravida. Aliquam tincidunt, nunc ac mattis ornare, lectus ante dictum mi, ac mattis velit justo nec ante. Maecenas mi felis,",20,14),
+("diam lorem, auctor","erat nonummy ultricies ornare, elit elit fermentum risus, at fringilla purus mauris a nunc. In at pede. Cras vulputate velit",10,20),
+("urna justo faucibus","sed, hendrerit a, arcu. Sed et libero. Proin mi. Aliquam gravida mauris ut mi. Duis risus odio, auctor vitae, aliquet",7,3),
+("Nunc commodo auctor","elit pede, malesuada vel, venenatis vel, faucibus id, libero. Donec consectetuer mauris id sapien. Cras dolor dolor, tempus non, lacinia",29,14),
+("eu erat semper","faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus ornare. Fusce mollis. Duis sit amet diam eu dolor egestas rhoncus.",24,15),
+("Cras dictum ultricies","rhoncus id, mollis nec, cursus a, enim. Suspendisse aliquet, sem ut cursus luctus, ipsum leo elementum sem, vitae aliquam eros",5,1),
+("nisi dictum augue","blandit mattis. Cras eget nisi dictum augue malesuada malesuada. Integer id magna et ipsum cursus vestibulum. Mauris magna. Duis dignissim",15,17),
+("erat eget ipsum.","Donec dignissim magna a tortor. Nunc commodo auctor velit. Aliquam nisl. Nulla eu neque pellentesque massa lobortis ultrices. Vivamus rhoncus.",8,18),
+("non justo. Proin","orci tincidunt adipiscing. Mauris molestie pharetra nibh. Aliquam ornare, libero at auctor ullamcorper, nisl arcu iaculis enim, sit amet ornare",26,26),
+("ullamcorper viverra. Maecenas","ridiculus mus. Proin vel nisl. Quisque fringilla euismod enim. Etiam gravida molestie arcu. Sed eu nibh vulputate mauris sagittis placerat.",3,30),
+("nec, mollis vitae,","Donec luctus aliquet odio. Etiam ligula tortor, dictum eu, placerat eget, venenatis a, magna. Lorem ipsum dolor sit amet, consectetuer",22,12),
+("vel pede blandit","at augue id ante dictum cursus. Nunc mauris elit, dictum eu, eleifend nec, malesuada ut, sem. Nulla interdum. Curabitur dictum.",22,3),
+("tellus. Suspendisse sed","at, egestas a, scelerisque sed, sapien. Nunc pulvinar arcu et pede. Nunc sed orci lobortis augue scelerisque mollis. Phasellus libero",29,10),
+("metus. Aenean sed","nec metus facilisis lorem tristique aliquet. Phasellus fermentum convallis ligula. Donec luctus aliquet odio. Etiam ligula tortor, dictum eu, placerat",20,29),
+("luctus felis purus","tortor at risus. Nunc ac sem ut dolor dapibus gravida. Aliquam tincidunt, nunc ac mattis ornare, lectus ante dictum mi,",22,17),
+("viverra. Donec tempus,","diam dictum sapien. Aenean massa. Integer vitae nibh. Donec est mauris, rhoncus id, mollis nec, cursus a, enim. Suspendisse aliquet,",7,19),
+("lorem vitae odio","fames ac turpis egestas. Fusce aliquet magna a neque. Nullam ut nisi a odio semper cursus. Integer mollis. Integer tincidunt",17,12),
+("dui, nec tempus","sagittis. Nullam vitae diam. Proin dolor. Nulla semper tellus id nunc interdum feugiat. Sed nec metus facilisis lorem tristique aliquet.",2,22),
+("Duis ac arcu.","odio semper cursus. Integer mollis. Integer tincidunt aliquam arcu. Aliquam ultrices iaculis odio. Nam interdum enim non nisi. Aenean eget",4,2),
+("ipsum cursus vestibulum.","in consectetuer ipsum nunc id enim. Curabitur massa. Vestibulum accumsan neque et nunc. Quisque ornare tortor at risus. Nunc ac",1,29),
+("adipiscing fringilla, porttitor","in magna. Phasellus dolor elit, pellentesque a, facilisis non, bibendum sed, est. Nunc laoreet lectus quis massa. Mauris vestibulum, neque",13,20),
+("sagittis. Nullam vitae","cursus vestibulum. Mauris magna. Duis dignissim tempor arcu. Vestibulum ut eros non enim commodo hendrerit. Donec porttitor tellus non magna.",15,11),
+("Aliquam ornare, libero","egestas a, scelerisque sed, sapien. Nunc pulvinar arcu et pede. Nunc sed orci lobortis augue scelerisque mollis. Phasellus libero mauris,",5,4),
+("Donec at arcu.","pellentesque eget, dictum placerat, augue. Sed molestie. Sed id risus quis diam luctus lobortis. Class aptent taciti sociosqu ad litora",11,29),
+("Donec vitae erat","nostra, per inceptos hymenaeos. Mauris ut quam vel sapien imperdiet ornare. In faucibus. Morbi vehicula. Pellentesque tincidunt tempus risus. Donec",24,9),
+("Nulla tempor augue","natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean eget magna. Suspendisse tristique neque venenatis lacus. Etiam bibendum",28,9),
+("et ipsum cursus","Fusce aliquet magna a neque. Nullam ut nisi a odio semper cursus. Integer mollis. Integer tincidunt aliquam arcu. Aliquam ultrices",11,19),
+("Nullam suscipit, est","tempor, est ac mattis semper, dui lectus rutrum urna, nec luctus felis purus ac tellus. Suspendisse sed dolor. Fusce mi",23,7),
+("est. Nunc ullamcorper,","cursus luctus, ipsum leo elementum sem, vitae aliquam eros turpis non enim. Mauris quis turpis vitae purus gravida sagittis. Duis",24,17),
+("non nisi. Aenean","a odio semper cursus. Integer mollis. Integer tincidunt aliquam arcu. Aliquam ultrices iaculis odio. Nam interdum enim non nisi. Aenean",16,26);
+
+
 
 
 
