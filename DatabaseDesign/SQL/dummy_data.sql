@@ -112,7 +112,39 @@ INSERT INTO `Positions` (`Title`,`Description`,`LocationID`,`PartnerID`) VALUES
 ("est. Nunc ullamcorper,","cursus luctus, ipsum leo elementum sem, vitae aliquam eros turpis non enim. Mauris quis turpis vitae purus gravida sagittis. Duis",24,17),
 ("non nisi. Aenean","a odio semper cursus. Integer mollis. Integer tincidunt aliquam arcu. Aliquam ultrices iaculis odio. Nam interdum enim non nisi. Aenean",16,26);
 
+-- Users Dummy Data (Creates 30 entries)
 
+INSERT INTO `Users` (`FirstName`,`LastName`,`RoleID`,`Email`,`Password`) VALUES 
+("Channing","Frye",3,"id@Suspendisse.com","JDR68DHW9ER"),
+("Shelly","Hardy",3,"nisl@ac.net","SPM61JWK0WP"),
+("Debra","Velasquez",4,"orci@tellusfaucibus.ca","IIP54DVG3XC"),
+("Abraham","Strong",4,"ac.turpis.egestas@eteuismod.net","GII16WTQ4VP"),
+("Cody","Hale",2,"nunc.risus.varius@etnuncQuisque.co.uk","IPL48NOA1GJ"),
+("Noble","May",4,"quam.Pellentesque.habitant@Cum.org","YDM37ZVU9JG"),
+("Bruce","Day",1,"nec.urna@Sedetlibero.com","ZGM80CSN5JH"),
+("Kalia","Sutton",4,"Cum@laoreet.com","PUX04AEZ0AT"),
+("Alec","Cortez",2,"Quisque@Crasegetnisi.net","ROD08JJJ9VS"),
+("Illana","Obrien",2,"iaculis.aliquet@in.co.uk","PKQ96ALZ7XQ"),
+("Bruno","Kirkland",2,"vel@gravidanonsollicitudin.com","AAA69ZEA9EI"),
+("Palmer","Juarez",3,"erat.Vivamus.nisi@rutrumurnanec.org","HDE61AGE5MF"),
+("Odysseus","Gates",4,"in@Vestibulumuteros.edu","PIC84FZL7MQ"),
+("Dieter","Rivera",3,"sit.amet.lorem@etarcu.org","MYT37KYR6AK"),
+("Vance","Mcleod",3,"pellentesque@turpisnon.co.uk","CGB78OSM0FC"),
+("Diana","Boyd",2,"vitae.purus.gravida@quis.com","ACN68QAX3QH"),
+("Murphy","Hurley",1,"lacus.Etiam@liberoatauctor.com","MCP78ZCY6HQ"),
+("Idona","Colon",1,"elit@acfermentum.org","EPW21QSX7PR"),
+("Prescott","Burke",4,"Sed.malesuada.augue@at.net","JIB52PKM5WG"),
+("Allen","Morrison",3,"sem@nibhvulputate.edu","SGR28EGX9QU"),
+("Alexander","Alvarez",2,"pede@acturpis.co.uk","NKI64UJX4KL"),
+("Craig","Wall",4,"lectus.Cum@vestibulumMauris.edu","RDD56BRD1WF"),
+("Dorothy","Campos",2,"pellentesque@Donec.edu","EPE31VYS3JP"),
+("Sage","Wiley",1,"Mauris.ut@hendreritDonecporttitor.net","PXY32VAN0RV"),
+("Ursula","Compton",3,"Fusce.mollis@magnased.net","DVR87YMJ5CT"),
+("Karina","Nichols",1,"eget.varius@adipiscingelit.co.uk","OJL00FXZ8EU"),
+("Quentin","Black",4,"in.magna.Phasellus@Aliquamultrices.co.uk","JNE08SSB4RO"),
+("Vaughan","Shelton",3,"euismod.est@sodales.co.uk","POO33XAK3GY"),
+("Victor","Miller",2,"dolor.vitae@vulputateeuodio.org","ERJ54KJX3MH"),
+("Drake","Sargent",4,"sed.facilisis.vitae@utodiovel.edu","ETK20DIW1GG");
 
 
 
