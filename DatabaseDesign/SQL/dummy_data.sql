@@ -248,5 +248,37 @@ INSERT INTO `Enrollments` (`EnrollmentStartDate`,`EnrollmentEndDate`,`StudentId`
 ("2016-11-04 23:30:52","2016-12-18 16:05:32",21,21),
 ("2016-11-05 14:41:58","2016-12-19 15:49:40",23,10);
 
+-- Hours Dummy Data (Creates 30 entries)
 
+INSERT INTO `Hours` (`InTime`,`OutTime`,`Hours`,`StudentId`,`PositionId`,`PartnerId`,`ProfessorId`,`CourseId`,`Responses`,`LocationId`) VALUES 
+("2016-11-02 23:42:14","2016-11-02 00:29:32",28,30,22,16,10,26,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at",14),
+("2016-11-02 01:56:27","2016-11-02 06:04:43",6,8,24,7,1,26,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. .",12),
+("2016-11-02 14:45:29","2016-11-02 01:15:08",5,25,21,17,4,29,"Lorem",11),
+("2016-11-02 05:43:56","2016-11-02 02:46:32",18,10,7,20,11,4,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus.",14),
+("2016-11-02 10:46:07","2016-11-02 15:26:35",4,11,1,7,5,11,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam",17),
+("2016-11-02 14:41:59","2016-11-02 02:22:24",25,28,1,10,29,4,"Lorem ipsum dolor sit",30),
+("2016-11-02 16:31:28","2016-11-02 17:20:10",6,13,21,17,25,7,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor.",13),
+("2016-11-02 07:59:03","2016-11-02 13:11:06",29,5,25,6,21,29," sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. gravida non, sollicitudin",21),
+("2016-11-02 01:00:49","2016-11-02 19:06:29",17,28,9,6,26,4,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien,",1),
+("2016-11-02 04:36:46","2016-11-02 04:28:36",30,4,30,3,3,13,"Lorem ipsum dolor sit amet,",7),
+("2016-11-02 01:49:57","2016-11-02 02:29:54",28,15,4,23,16,20,"Lorem",20),
+("2016-11-02 20:36:26","2016-11-02 19:41:50",14,1,3,10,10,8,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut",22),
+("2016-11-02 02:39:24","2016-11-02 19:24:11",16,9,4,9,3,28,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",21),
+("2016-11-02 01:17:37","2016-11-02 23:13:44",18,27,29,8,9,16,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus.",28),
+("2016-11-02 01:12:52","2016-11-02 06:43:11",1,8,20,4,27,14,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu",12),
+("2016-11-02 01:50:50","2016-11-02 05:11:45",17,23,11,16,20,13,"Curabitur sed tortor. Integer aliquam",15),
+("2016-11-02 22:11:55","2016-11-02 11:48:28",7,22,25,2,3,21,"Lorem ipsum dolor sit amet, consectetuer",29),
+("2016-11-02 19:32:41","2016-11-02 00:21:55",7,7,5,22,24,23,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus.",21),
+("2016-11-02 09:17:14","2016-11-02 22:52:47",25,23,21,19,18,13,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. ",16),
+("2016-11-02 18:23:54","2016-11-02 16:22:41",10,2,25,5,16,14,"Ut nec urna et arcu imperdiet ullamcorper. Duis",12),
+("2016-11-02 23:53:26","2016-11-02 14:08:38",14,5,9,10,18,19,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed",26),
+("2016-11-02 05:55:34","2016-11-02 21:21:02",27,25,4,15,27,29,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu",6),
+("2016-11-02 09:00:16","2016-11-02 02:44:08",6,30,6,28,25,26,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien, gravida non, sollicitudin a, malesuada id, erat.",10),
+("2016-11-02 09:38:38","2016-11-02 10:41:35",28,28,7,8,11,27,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper.",25),
+("2016-11-02 15:05:52","2016-11-02 11:00:18",5,21,12,3,25,10,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam",8),
+("2016-11-02 02:06:58","2016-11-02 09:23:35",15,21,17,25,14,21,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus",4),
+("2016-11-02 01:31:22","2016-11-02 02:07:45",18,11,3,10,25,12,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien, gravida non, sollicitudin",1),
+("2016-11-02 20:00:46","2016-11-02 11:40:13",25,30,2,29,30,15,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Etiam vestibulum massa rutrum magna. Cras convallis convallis dolor. Quisque tincidunt",6),
+("2016-11-02 13:34:23","2016-11-02 07:34:23",19,13,1,16,24,5,"Lorem ipsum dolor",20),
+("2016-11-02 17:51:53","2016-11-02 21:15:11",4,12,15,22,25,3,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet",13);
 
