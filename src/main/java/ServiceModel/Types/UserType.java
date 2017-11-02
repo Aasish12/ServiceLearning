@@ -1,70 +1,62 @@
 package ServiceModel.Types;
 
 public class UserType {
-    private int userId;
-    private int positionId;
+    private int ID;
+    private int RoleID;
 
-    private String firstName;
-    private String lastName;
+    private String FirstName;
+    private String LastName;
 
-    private String username;
-    private String hashedPassword;
+    private String Password;
 
     public UserType() {}
 
-    public UserType(int userId,
-                    int positionId,
+    public UserType(int ID,
+                    int RoleID,
                     String firstName,
-                    String lastName,
-                    String username) {
-        this.userId = userId;
-        this.positionId = positionId;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.username = username;
-        this.hashedPassword = "";
+                    String lastName) {
+        this.ID = ID;
+        this.RoleID = RoleID;
+        this.FirstName = firstName;
+        this.LastName = lastName;
+        this.Password = "";
     }
 
     /* Gets */
-    public int getUserId() {
-        return this.userId;
+    public int getID() {
+        return this.ID;
     }
 
-    public int getPositionId() {
-        return this.positionId;
+    public int getRoleID() {
+        return this.RoleID;
     }
 
     public String getFirstName() {
-        return this.firstName;
+        return this.FirstName;
     }
 
     public String getLastName() {
-        return this.lastName;
-    }
-
-    public String getUsername() {
-        return this.username;
+        return this.LastName;
     }
 
     /* Sets */
-    public void setPositionId(int newId) {
-        this.positionId = newId;
+    public void setRoleID(int newId) {
+        this.RoleID = newId;
     }
 
     public void setFirstName(String newFirst) {
-        this.firstName = newFirst;
+        this.FirstName = newFirst;
     }
 
     public void setLastName(String newLast) {
-        this.lastName = newLast;
+        this.LastName = newLast;
     }
 
     @Override
     public String toString() {
-        return " UserId : " + this.userId +
-                " PositionId : " + this.positionId +
-                " FirstName : " + this.firstName +
-                " LastName : " + this.lastName +
-                " Username : " + this.username;
+        return " UserId : " + this.ID +
+                " PositionId : " + this.RoleID +
+                " FirstName : " + this.FirstName +
+                " LastName : " + this.LastName;
     }
 }

@@ -1,11 +1,14 @@
 package ServiceModel;
 
+import Data.User;
 import ServiceModel.Types.UserType;
 import ServiceInterface.UserServices;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 /*
 * User specific API route definitions.
@@ -21,7 +24,7 @@ public class UserRoutes {
     @GET
     @Path("/all")
     @Produces(MediaType.APPLICATION_JSON)
-    public ArrayList<UserType> getAllUsers() {
+    public List<User> getAllUsers() throws SQLException {
         return services.GetAllUsers();
     }
 
@@ -33,9 +36,9 @@ public class UserRoutes {
     }
 
     @GET
-    @Path("/getById/{studentId}")
+    @Path("/getById/{userId}")
     @Produces(MediaType.APPLICATION_JSON)
-    public UserType getUserById(@PathParam("studentId") int userId) {
+    public User getUserById(@PathParam("userId") int userId) throws SQLException {
         return services.GetById(userId);
     }
 
