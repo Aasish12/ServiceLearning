@@ -34,8 +34,6 @@ INSERT INTO `Partners` (`FirstName`,`LastName`,`Phone`) VALUES
 ("Delilah","Harding","2074807993"),
 ("Joan","Livingston","1695312657");
 
-select * from test.Partners;
-
 -- Locations Dummy Data (creates 30 entries)
 
 INSERT INTO `Locations` (`City`,`State`,`AddressLine1`,`AddressLine2`,`Country`,`Zipcode`,`isPrimary`) VALUES 
