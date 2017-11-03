@@ -1,5 +1,5 @@
 {
-  "name": "NUSL",
+  "name": "NEUSL",
   "version": "1.0.0",
   "description": "NEU Sevice Learning",
   "main": "server.js",

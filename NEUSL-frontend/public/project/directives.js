@@ -1,41 +1,14 @@
 (function () {
     angular
         .module("NEUSLDirectives", [])
-        .directive("NEUSLNavbar", NEUSLNavbar)
-        .directive("postListComponent", postListComponent)
-        .directive("recentPostsComponent", recentPostsComponent)
-        .directive("commentsComponent", commentsComponent);
+        .directive("NEUSLNavbar", NEUSLNavbar);
 
     function NEUSLNavbar($http) {
         return {
-            templateUrl: "views/home/templates/oh-navbar.component.client.html",
-            controller: 'ohNavbarController',
+            templateUrl: "views/home/templates/navbar.component.client.html",
+            controller: 'navbarController',
             controllerAs: 'navController'
             // link : linkFunction
-        }
-    }
-
-    function postListComponent($http) {
-        return {
-            templateUrl: "views/home/templates/post-list.component.client.html",
-            controller: "postListComponentController",
-            controllerAs: "postList"
-        }
-    }
-
-    function recentPostsComponent($http) {
-        return {
-            templateUrl: "views/home/templates/recent-posts.component.client.html",
-            controller: "recentPostController",
-            controllerAs: "recentPostModel"
-        }
-    }
-
-    function commentsComponent($http) {
-        return {
-            templateUrl: "views/home/templates/comment.component.client.html",
-            controller: "commentComponentController",
-            controllerAs: "commentModel"
         }
     }
 

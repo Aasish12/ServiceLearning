@@ -42,56 +42,7 @@
                 controller: "registerController",
                 controllerAs: "model"
             })
-            .when("/test", {
-                templateUrl: "views/test/templates/player-search.view.client.html",
-                controller: "playerSearchController",
-                controllerAs: "model"
-            })
-            // //website routes
-            .when("/boards", {
-                templateUrl: "views/board/templates/boards.view.client.html",
-                controller: "boardListController",
-                controllerAs: "model"
-            })
-            .when("/boards/new", {
-                templateUrl: "views/board/templates/boards-new.view.client.html",
-                controller: 'boardNewController',
-                controllerAs: "model",
-                resolve: {
-                    currentUser: checkAdmin
-                }
-            })
-            .when("/boards/:boardId/edit", {
-                templateUrl: "views/board/templates/boards-edit.view.client.html",
-                controller: 'boardEditController',
-                controllerAs: "model",
-                resolve: {
-                    currentUser: checkAdmin
-                }
-            })
-            .when("/boards/:boardId", {
-                templateUrl: "views/post/templates/posts.view.client.html",
-                controller: 'postListController',
-                controllerAs: "model"
-            })
-            .when("/boards/:boardId/new", {
-                templateUrl: "views/post/templates/posts-new.view.client.html",
-                controller: "postNewController",
-                controllerAs: "model",
-                resolve: {
-                    currentUser: checkLogin
-                }
-            })
-            .when("/boards/:boardId/post/:postId", {
-                templateUrl: "views/post/templates/thread.view.client.html",
-                controller: "threadViewController",
-                controllerAs: "model"
-            })
-            .when("/boards/:boardId/post/:postId/edit", {
-                templateUrl: "views/post/templates/posts-edit.view.client.html",
-                controller: "postEditController",
-                controllerAs: "model"
-            })
+            // // admin routes
             .when("/admin/edit", {
                 templateUrl:"views/user/templates/admin-control.view.client.html",
                 controller: "adminEditController",
@@ -111,54 +62,6 @@
             .when("/terminate-auth", {
                 templateUrl: "views/home/templates/terminate-auth.view.client.html"
             });
-            // .when("/user/:userId/website/new", {
-            //     templateUrl: "views/website/templates/website-new.view.client.html",
-            //     controller: "websiteNewController",
-            //     controllerAs: "model"
-            // })
-            // .when("/user/:userId/website/:websiteId", {
-            //     templateUrl: "views/website/templates/website-edit.view.client.html",
-            //     controller: "websiteEditController",
-            //     controllerAs: "model"
-            // })
-            // //page routes
-            // .when("/user/:userId/website/:websiteId/page", {
-            //     templateUrl: "views/page/templates/page-list.view.client.html",
-            //     controller: "pageListController",
-            //     controllerAs: "model"
-            // })
-            // .when("/user/:userId/website/:websiteId/page/new", {
-            //     templateUrl: "views/page/templates/page-new.view.client.html",
-            //     controller: "pageNewController",
-            //     controllerAs: "model"
-            // })
-            // .when("/user/:userId/website/:websiteId/page/:pageId", {
-            //     templateUrl: "views/page/templates/page-edit.view.client.html",
-            //     controller: "pageEditController",
-            //     controllerAs: "model"
-            // })
-            // //widget routes
-            // .when("/user/:userId/website/:websiteId/page/:pageId/widget", {
-            //     templateUrl: "views/widget/templates/widget-list.view.client.html",
-            //     controller: "widgetListController",
-            //     controllerAs: "model"
-            // })
-            // .when("/user/:userId/website/:websiteId/page/:pageId/widget/new", {
-            //     templateUrl: "views/widget/templates/widget-chooser.view.client.html",
-            //     controller: "widgetNewController",
-            //     controllerAs: "model"
-            // })
-            // .when("/user/:userId/website/:websiteId/page/:pageId/widget/:widgetId", {
-            //     templateUrl: "views/widget/templates/widget-edit.view.client.html",
-            //     controller: "widgetEditController",
-            //     controllerAs: "model"
-            // })
-            // .when("/user/:userId/website/:websiteId/page/:pageId/widget/:widgetId/search", {
-            //     templateUrl: "views/widget/templates/widget-flickr-search.view.client.html",
-            //     controller: "imageSearchController",
-            //     controllerAs: "model"
-            // })
-            // .otherwise({redirectTo : "/login"});
 
     }
 
