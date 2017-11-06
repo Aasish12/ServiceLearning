@@ -19,6 +19,7 @@ Hour
 
 create table Partners (
 	ID int NOT NULL auto_increment
+	,CompanyName varchar(150)
     ,FirstName varchar(60)
     ,LastName varchar(60)
     ,Phone varchar(10)    
