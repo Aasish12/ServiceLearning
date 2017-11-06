@@ -7,7 +7,7 @@ pipeline {
 		stage('Build') {
 			steps {
 				echo "Building..."
-				sh 'mvn clean'
+				sh 'mvn clean install'
 			}
 		}
 
@@ -15,7 +15,7 @@ pipeline {
 			steps {
 				echo "testing..."
 				sh 'mvn test || true'
-				junit 'src/test/TestResults/*.xml'
+				//junit 'target/surefire-reports/**/*.xml'
 			}
 		}
 	}
