@@ -1,9 +1,9 @@
 (function () {
     angular
-        .module("NEUSLDirectives", [])
-        .directive("NEUSLNavbar", NEUSLNavbar);
+        .module("neuSLDirectives", [])
+        .directive("neuSLNavbar", neuSLNavbar);
 
-    function NEUSLNavbar($http) {
+    function neuSLNavbar($http) {
         return {
             templateUrl: "views/home/templates/navbar.component.client.html",
             controller: 'navbarController',

@@ -9,6 +9,7 @@
         model.onClickRegister = onClickRegister;
 
         function init() {
+            console.log("betch");
         }
         init();
 

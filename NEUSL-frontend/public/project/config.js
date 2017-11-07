@@ -3,12 +3,12 @@
         .module("NEUSL")
         .config(configuration);
 
-    function configuration($routeProvider, $httpProvider) {
+    function configuration($routeProvider) {
         // $httpProvider.defaults.headers.post['Content-Type'] = 'application/json; charset=utf-8';
         $routeProvider
             .when("/", {
-                templateUrl: "views/home/templates/body.view.client.html",
-                controller:  "homeController",
+                templateUrl: "views/user/templates/login.view.client.html",
+                controller:  "loginController",
                 controllerAs: "model"
             })
             .when("/login", {
@@ -61,8 +61,8 @@
             })
             .when("/terminate-auth", {
                 templateUrl: "views/home/templates/terminate-auth.view.client.html"
-            });
-
+            })
+            .otherwise({redirectTo : '/login'});
     }
 
     function checkEditProfile($route, userService, $q, $location) {
