@@ -4,7 +4,7 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "Partners")
-public class Partners {
+public class Partner {
   @DatabaseField(generatedId = true)
   private int ID;
   @DatabaseField
@@ -14,7 +14,7 @@ public class Partners {
   @DatabaseField
   private String Phone;
 
-  public Partners() {
+  public Partner() {
   }
 
   public String getCompanyName() {
