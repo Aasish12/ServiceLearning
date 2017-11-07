@@ -12,3 +12,5 @@ var db = mongoose.connect(connectionString);
 mongoose.Promise = q.Promise;
 
 module.exports = db;
+
+
