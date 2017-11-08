@@ -1,0 +1,34 @@
+repos: 
+User - Kofi
+Hours - Bailey
+Partners - Josh
+Courses - Aasish
+Positions - Kofi
+Location - Josh
+Enrollment - Aasish
+Employment - Kofi
+Dashboard (TBD) 
+
+admin: 
+user manage
+partner manage
+course manage
+position manage
+dashboard / stats
+login/logout 
+
+user:
+dashboard (add hours / buckets / comments) (stats)
+profile
+hours
+
+ta: 
+all user things
+user management
+course management 
+
+professor: 
+all TA things 
+no add hours on dashboard (stats only)
+
+footer w lisas email 
