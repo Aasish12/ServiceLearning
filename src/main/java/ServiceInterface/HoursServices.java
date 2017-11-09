@@ -8,7 +8,7 @@ import DataRepository.HoursRepository;
 import ServiceModel.Types.*;
 
 /*
-* Logic for courses
+* Logic for hours
 *
 * Kofi Collins-Sibley
 * Bailey Kay
