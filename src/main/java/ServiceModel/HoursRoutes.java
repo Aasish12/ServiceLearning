@@ -5,6 +5,7 @@ import ServiceModel.Types.HoursType;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /*
@@ -12,12 +13,20 @@ import java.util.ArrayList;
 * GOAL: Define routes, call services to return data.
 *
 * Kofi Collins-Sibley
+* Bailey Kay
 * */
 @Path("/hours/")
 public class HoursRoutes {
     private HoursServices services = new HoursServices();
 
     /* Get routes */
+    @GET
+    @Path("/all")
+    @Produces(MediaType.APPLICATION_JSON)
+    public ArrayList<HoursType> getAllHours() throws SQLException {
+        return services.GetAllHours();
+    }
+
     @GET
     @Path("/getHoursByStudentId/{studentId}")
     @Produces(MediaType.APPLICATION_JSON)
