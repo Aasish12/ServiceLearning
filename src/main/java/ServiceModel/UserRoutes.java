@@ -1,13 +1,11 @@
 package ServiceModel;
 
 import Data.User;
-import ServiceModel.Types.UserType;
 import ServiceInterface.UserServices;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 /*
@@ -28,10 +26,11 @@ public class UserRoutes {
         return services.GetAllUsers();
     }
 
+    /* Search for users by first name, last name, or email */
     @GET
     @Path("/search/{searchText}")
     @Produces(MediaType.APPLICATION_JSON)
-    public ArrayList<UserType> searchUsers(@PathParam("searchText") String searchText) {
+    public List<User> searchUsers(@PathParam("searchText") String searchText) throws SQLException {
         return services.SearchUsers(searchText);
     }
 
@@ -45,22 +44,22 @@ public class UserRoutes {
     @GET
     @Path("/getNewUser")
     @Produces(MediaType.APPLICATION_JSON)
-    public UserType getNewUser() {
-        return new UserType();
+    public User getNewUser() {
+        return new User();
     }
 
     /* Post & Put */
     @POST
     @Path("/post")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void postNewUser(UserType user) {
+    public void postNewUser(User user) throws SQLException {
         services.PostUser(user);
     }
 
     @PUT
     @Path("/put")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void putUser(UserType user) {
+    public void putUser(User user) throws SQLException {
         services.PutUser(user);
     }
 }

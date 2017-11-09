@@ -5,7 +5,6 @@ import java.util.*;
 
 import Data.User;
 import DataRepository.UserRepository;
-import ServiceModel.Types.*;
 
 /*
 * Logic for users
@@ -17,19 +16,19 @@ public class UserServices {
         return new UserRepository().GetAllUsers();
     }
 
-    public ArrayList<UserType> SearchUsers(String searchText) {
-        return null;
+    public List<User> SearchUsers(String searchText) throws SQLException {
+        return new UserRepository().SearchUsers(searchText);
     }
 
     public User GetById(int userId) throws SQLException {
         return new UserRepository().GetUserById(userId);
     }
 
-    public void PostUser(UserType newUser) {
-
+    public void PostUser(User newUser) throws SQLException {
+        new UserRepository().Post(newUser);
     }
 
-    public void PutUser(UserType user) {
-
+    public void PutUser(User user) throws SQLException {
+        new UserRepository().Put(user);
     }
 }
