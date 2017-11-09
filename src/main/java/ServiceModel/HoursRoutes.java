@@ -1,11 +1,13 @@
 package ServiceModel;
 
-import ServiceInterface.HoursServices;
+import Data.Hours;
 import ServiceModel.Types.HoursType;
+import ServiceInterface.HoursServices;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.ArrayList;
 
 /*
@@ -23,7 +25,7 @@ public class HoursRoutes {
     @GET
     @Path("/all")
     @Produces(MediaType.APPLICATION_JSON)
-    public ArrayList<HoursType> getAllHours() throws SQLException {
+    public List<Hours> getAllHours() throws SQLException {
         return services.GetAllHours();
     }
 
