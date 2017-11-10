@@ -20,8 +20,11 @@ pipeline {
 			}
 		}
 
-		stage('Deploy') {
-		
+		stage('DeployMaster') {
+			when { branch 'master' }
+			steps {
+				sh echo "Hello Deploy in master."
+			}
 		}
 	}
 
