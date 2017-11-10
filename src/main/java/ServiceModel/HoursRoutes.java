@@ -2,9 +2,11 @@ package ServiceModel;
 
 import ServiceInterface.HoursServices;
 import ServiceModel.Types.HoursType;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
 
 /*
@@ -13,34 +15,27 @@ import java.util.ArrayList;
 *
 * Kofi Collins-Sibley
 * */
-@Path("/hours/")
+
+@RestController
 public class HoursRoutes {
     private HoursServices services = new HoursServices();
 
     /* Get routes */
-    @GET
-    @Path("/getHoursByStudentId/{studentId}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public ArrayList<HoursType> getHoursByStudentId(@PathParam("studentId") int studentId) {
+    @RequestMapping(value = "/hours/getHoursByStudentId/{studentId}", method = RequestMethod.GET)
+    public ArrayList<HoursType> getHoursByStudentId(@PathVariable("studentId") int studentId) {
         return services.GetHoursByStudentId(studentId);
     }
 
-    @GET
-    @Path("/getHoursByCourseId/{courseId}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public ArrayList<HoursType> getHoursByCourseId(@PathParam("courseId") int courseId) {
+    @RequestMapping(value = "/hours/getHoursByCourseId/{courseId}", method = RequestMethod.GET)
+    public ArrayList<HoursType> getHoursByCourseId(@PathVariable("courseId") int courseId) {
         return services.GetHoursByCourseId(courseId);
     }
 
-    @GET
-    @Path("/getNewHours")
-    @Produces(MediaType.APPLICATION_JSON)
+    @RequestMapping(value = "/hours/getNewHours", method = RequestMethod.GET)
     public HoursType getNewHours() { return new HoursType(); }
 
     /* Post & Put */
-    @POST
-    @Path("/post")
-    @Consumes(MediaType.APPLICATION_JSON)
+    @RequestMapping(value = "/hours/post", method = RequestMethod.POST)
     public void recordNewHours(HoursType hours) {
         services.PostHours(hours);
     }

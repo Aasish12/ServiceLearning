@@ -7,7 +7,8 @@ pipeline {
 		stage('Build') {
 			steps {
 				echo "Building..."
-				sh 'mvn clean install'
+				sh 'mvn clean compile'
+				sh 'mvn package'
 			}
 		}
 
@@ -15,15 +16,19 @@ pipeline {
 			steps {
 				echo "testing..."
 				sh 'mvn test || true'
-				//junit 'target/surefire-reports/**/*.xml'
+				junit 'target/surefire-reports/*.xml'
 			}
+		}
+
+		stage('Deploy') {
+		
 		}
 	}
 
 	post {
 			always {
 				echo "saving results..."
-				archive 'target/**/*.jar'
+				archive 'target/*.jar'
 			}
 			success {
 				echo "success..."
