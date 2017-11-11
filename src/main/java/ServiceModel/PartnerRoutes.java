@@ -32,8 +32,8 @@ public class PartnerRoutes {
     @GET
     @Path("/search/{searchText}")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<PartnerType> searchPartners(@PathParam("searchText") String searchText) {
-        return services.SearchPartners(searchText);
+    public List<Partner> searchPartners(@PathParam("searchText") String searchText) throws SQLException {
+        return services.searchPartners(searchText);
     }
 
     @GET
@@ -46,22 +46,22 @@ public class PartnerRoutes {
     @GET
     @Path("/getNewPartner")
     @Produces(MediaType.APPLICATION_JSON)
-    public PartnerType getNewPartner() {
-        return new PartnerType();
+    public Partner getNewPartner() {
+        return new Partner();
     }
 
     //Post and Put
     @POST
     @Path("/post")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void postPartner(PartnerType partner) {
+    public void postPartner(Partner partner) throws SQLException {
         services.postPartner(partner);
     }
 
     @PUT
     @Path("/put")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void putPartner(PartnerType partner) {
+    public void putPartner(Partner partner) throws SQLException {
         services.putPartner(partner);
     }
 

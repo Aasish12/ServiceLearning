@@ -6,6 +6,9 @@ import java.util.List;
 import Data.Partner;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
+import com.j256.ormlite.stmt.PreparedQuery;
+import com.j256.ormlite.stmt.QueryBuilder;
+import com.j256.ormlite.stmt.Where;
 
 /*
 * Access database from here
@@ -28,6 +31,32 @@ public class PartnerRepository extends RepositoryBase {
 
     public Partner getPartnerById(int id) throws SQLException {
         return partnerDao.queryForId(Integer.toString(id));
+    }
+
+    //todo: decide elastic searcd functionality
+    public List<Partner> searchPartners(String searchText) throws SQLException {
+        QueryBuilder<Partner, String> qb = partnerDao.queryBuilder();
+        Where<Partner, String> where = qb.where();
+
+        where.like("FirstName", '%'+searchText+'%')
+                .or()
+                .like("LastName", '%'+searchText+'%')
+                .or()
+                .like("Phone", '%'+searchText+'%')
+                .or()
+                .like("CompanyName", '%'+searchText+'%');
+
+        PreparedQuery<Partner> preparedQuery = qb.prepare();
+
+        return partnerDao.query(preparedQuery);
+    }
+
+    public void post(Partner newPartner) throws SQLException {
+        partnerDao.create(newPartner);
+    }
+
+    public void put(Partner partner) throws SQLException {
+        partnerDao.update(partner);
     }
 
 }

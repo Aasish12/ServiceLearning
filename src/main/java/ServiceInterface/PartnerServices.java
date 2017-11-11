@@ -21,25 +21,23 @@ public class PartnerServices {
         return new PartnerRepository().getAllPartners();
     }
 
-    //todo: implement this method
-    public List<PartnerType> SearchPartners(String searchText) {
-        return null;
+    public List<Partner> searchPartners(String searchText) throws SQLException {
+        return new PartnerRepository().searchPartners(searchText);
+
     }
 
     public Partner getById(int id) throws SQLException {
         return new PartnerRepository().getPartnerById(id);
     }
 
-    //todo: implement this method
     //todo: return status, not void
-    public void postPartner(PartnerType partner) {
-
+    public void postPartner(Partner partner) throws SQLException {
+         new PartnerRepository().post(partner);
     }
 
-    //todo: implement this method
     //todo: return status, not void
-    public void putPartner(PartnerType partner) {
-
+    public void putPartner(Partner partner) throws SQLException {
+        new PartnerRepository().put(partner);
     }
 
 }
