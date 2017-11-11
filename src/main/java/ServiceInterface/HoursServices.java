@@ -18,8 +18,8 @@ public class HoursServices {
         return new HoursRepository().GetAllHours();
     }
 
-    public ArrayList<HoursType> GetHoursByStudentId(int studentId) {
-        return null;
+    public ArrayList<HoursType> GetHoursByStudentId(int studentId) throws SQLException {
+        return new HoursRepository().GetHoursByStudentID(studentId);
     }
 
     public ArrayList<HoursType> GetHoursByCourseId(int courseId) {

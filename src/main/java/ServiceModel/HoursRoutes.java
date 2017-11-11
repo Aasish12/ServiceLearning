@@ -32,7 +32,7 @@ public class HoursRoutes {
     @GET
     @Path("/getHoursByStudentId/{studentId}")
     @Produces(MediaType.APPLICATION_JSON)
-    public ArrayList<HoursType> getHoursByStudentId(@PathParam("studentId") int studentId) {
+    public List<HoursType> getHoursByStudentId(@PathParam("studentId") int studentId) throws SQLException {
         return services.GetHoursByStudentId(studentId);
     }
 
