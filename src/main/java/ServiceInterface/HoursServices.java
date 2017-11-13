@@ -5,7 +5,6 @@ import java.util.*;
 
 import Data.Hours;
 import DataRepository.HoursRepository;
-import ServiceModel.Types.*;
 
 /*
 * Logic for hours
