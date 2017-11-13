@@ -22,8 +22,8 @@ public class HoursServices {
         return new HoursRepository().getHoursByStudentID(studentId);
     }
 
-    public ArrayList<HoursType> getHoursByCourseId(int courseId) {
-        return null;
+    public List<Hours> getHoursByCourseId(int courseId) throws SQLException {
+        return new HoursRepository().getHoursByCourseID(courseId);
     }
 
     public void PostHours(HoursType newHours) {

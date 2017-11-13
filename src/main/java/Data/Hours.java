@@ -8,106 +8,118 @@ public class Hours {
   @DatabaseField(generatedId = true)
   private int ID;
   @DatabaseField
-  private int InTime;
+  private int inTime;
   @DatabaseField
-  private int OutTime;
+  private int outTime;
   @DatabaseField
   private float hours;
   @DatabaseField
-  private int StudentId;
+  private int studentId;
   @DatabaseField
-  private int PositionId;
+  private int positionId;
   @DatabaseField
-  private int PartnerId;
+  private int partnerId;
   @DatabaseField
-  private int ProfessorId;
+  private int professorId;
   @DatabaseField
-  private int CourseID;
+  private int courseID;
   @DatabaseField
-  private String Responses;
+  private String responses;
   @DatabaseField
-  private int LocationId;
+  private int locationId;
 
-  public Hours() {
+  public Hours(int ID, int inTime, int outTime, float hours, int studentId, int positionId,
+               int partnerId, int professorId, int courseID, String responses, int locationId) {
+      this.ID = ID;
+      this.inTime = inTime;
+      this.outTime = outTime;
+      this.hours = hours;
+      this.studentId = studentId;
+      this.positionId = positionId;
+      this.partnerId = partnerId;
+      this.professorId = professorId;
+      this.courseID = courseID;
+      this.responses = responses;
+      this.locationId = locationId;
   }
 
   public int getInTime() {
-    return InTime;
+      return this.inTime;
   }
 
   public void setInTime(int inTime) {
-    InTime = inTime;
+    this.inTime = inTime;
   }
 
   public int getOutTime() {
-    return OutTime;
+      return this.outTime;
   }
 
   public void setOutTime(int outTime) {
-    OutTime = outTime;
+      this.outTime = outTime;
   }
 
   public float getHours() {
-    return hours;
+      return this.hours;
   }
 
   public void setHours(float hours) {
-    this.hours = hours;
+      this.hours = hours;
   }
 
   public int getStudentId() {
-    return StudentId;
+      return this.studentId;
   }
 
   public void setStudentId(int studentId) {
-    StudentId = studentId;
+      this.studentId = studentId;
   }
 
   public int getPositionId() {
-    return PositionId;
+      return this.positionId;
   }
 
   public void setPositionId(int positionId) {
-    PositionId = positionId;
+      this.positionId = positionId;
   }
 
   public int getPartnerId() {
-    return PartnerId;
+      return this.partnerId;
   }
 
   public void setPartnerId(int partnerId) {
-    PartnerId = partnerId;
+      this.partnerId = partnerId;
   }
 
   public int getProfessorId() {
-    return ProfessorId;
+      return this.professorId;
   }
 
   public void setProfessorId(int professorId) {
-    ProfessorId = professorId;
+    this.professorId = professorId;
   }
 
   public int getCourseID() {
-    return CourseID;
+      return this.courseID;
   }
 
   public void setCourseID(int courseID) {
-    CourseID = courseID;
+      this.courseID = courseID;
   }
 
   public String getResponses() {
-    return Responses;
+      return this.responses;
   }
 
   public void setResponses(String responses) {
-    Responses = responses;
+      this.responses = responses;
   }
 
   public int getLocationId() {
-    return LocationId;
+      return this.locationId;
   }
 
   public void setLocationId(int locationId) {
-    LocationId = locationId;
+      this.locationId = locationId;
   }
 }

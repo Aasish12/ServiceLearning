@@ -21,7 +21,6 @@ import com.j256.ormlite.stmt.Where;
 * */
 public class HoursRepository extends RepositoryBase {
     private Dao<Hours, String> hoursDao;
-    private Hours hoursObject = new Hours();
 
     public HoursRepository() throws SQLException {
         super();
@@ -35,8 +34,15 @@ public class HoursRepository extends RepositoryBase {
     public List<Hours> getHoursByStudentID(int studentId) throws SQLException {
         QueryBuilder<Hours, String> qb = hoursDao.queryBuilder();
         Where where = qb.where();
-        // the StudentId field must be equal to studentID
-        where.eq(String.valueOf(hoursObject.getStudentId()), studentId);
+        where.eq("StudentId", studentId);
+        PreparedQuery<Hours> preparedQuery = qb.prepare();
+        return hoursDao.query(preparedQuery);
+    }
+
+    public List<Hours> getHoursByCourseID(int courseId) throws SQLException {
+        QueryBuilder<Hours, String> qb = hoursDao.queryBuilder();
+        Where where = qb.where();
+        where.eq("CourseId", courseId);
         PreparedQuery<Hours> preparedQuery = qb.prepare();
         return hoursDao.query(preparedQuery);
     }
