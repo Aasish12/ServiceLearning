@@ -23,7 +23,7 @@ pipeline {
 		stage('DeployMaster') {
 			when { branch 'master' }
 			steps {
-				sh echo "Hello Deploy in master."
+				echo "Hello Deploy in master."
 			}
 		}
 	}
