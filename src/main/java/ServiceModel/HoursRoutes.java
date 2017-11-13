@@ -32,15 +32,15 @@ public class HoursRoutes {
     @GET
     @Path("/getHoursByStudentId/{studentId}")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<HoursType> getHoursByStudentId(@PathParam("studentId") int studentId) throws SQLException {
-        return services.GetHoursByStudentId(studentId);
+    public List<Hours> getHoursByStudentId(@PathParam("studentId") int studentId) throws SQLException {
+        return services.getHoursByStudentId(studentId);
     }
 
     @GET
     @Path("/getHoursByCourseId/{courseId}")
     @Produces(MediaType.APPLICATION_JSON)
     public ArrayList<HoursType> getHoursByCourseId(@PathParam("courseId") int courseId) {
-        return services.GetHoursByCourseId(courseId);
+        return services.getHoursByCourseId(courseId);
     }
 
     @GET

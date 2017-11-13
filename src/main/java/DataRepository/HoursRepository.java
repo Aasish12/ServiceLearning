@@ -32,7 +32,7 @@ public class HoursRepository extends RepositoryBase {
         return hoursDao.queryForAll();
     }
 
-    public List<Hours> GetHoursByStudentID(int studentId) throws SQLException {
+    public List<Hours> getHoursByStudentID(int studentId) throws SQLException {
         QueryBuilder<Hours, String> qb = hoursDao.queryBuilder();
         Where where = qb.where();
         // the StudentId field must be equal to studentID
