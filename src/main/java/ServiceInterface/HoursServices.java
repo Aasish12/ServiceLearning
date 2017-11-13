@@ -26,7 +26,11 @@ public class HoursServices {
         return new HoursRepository().getHoursByCourseID(courseId);
     }
 
-    public void PostHours(HoursType newHours) {
+    public void postHours(Hours newHours) throws SQLException {
+        new HoursRepository().post(newHours);
+    }
 
+    public void putHours(Hours hours) throws SQLException {
+        new HoursRepository().put(hours);
     }
 }

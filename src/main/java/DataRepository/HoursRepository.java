@@ -46,4 +46,12 @@ public class HoursRepository extends RepositoryBase {
         PreparedQuery<Hours> preparedQuery = qb.prepare();
         return hoursDao.query(preparedQuery);
     }
+
+    public void post(Hours newHours) throws SQLException {
+        hoursDao.create(newHours);
+    }
+
+    public void put(Hours hours) throws SQLException {
+        hoursDao.update(hours);
+    }
 }

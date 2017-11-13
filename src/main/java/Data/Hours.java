@@ -28,6 +28,8 @@ public class Hours {
   @DatabaseField
   private int locationId;
 
+  public Hours() { }
+
   public Hours(int ID, int inTime, int outTime, float hours, int studentId, int positionId,
                int partnerId, int professorId, int courseID, String responses, int locationId) {
       this.ID = ID;

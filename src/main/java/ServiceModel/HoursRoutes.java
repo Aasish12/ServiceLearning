@@ -46,13 +46,22 @@ public class HoursRoutes {
     @GET
     @Path("/getNewHours")
     @Produces(MediaType.APPLICATION_JSON)
-    public HoursType getNewHours() { return new HoursType(); }
+    public Hours getNewHours() {
+        return new Hours();
+    }
 
     /* Post & Put */
     @POST
     @Path("/post")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void recordNewHours(HoursType hours) {
-        services.PostHours(hours);
+    public void postNewHours(Hours hours) throws SQLException {
+        services.postHours(hours);
+    }
+
+    @PUT
+    @Path("/put")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void putHours(Hours hours) throws SQLException {
+        services.putHours(hours);
     }
 }
