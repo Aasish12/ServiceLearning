@@ -6,7 +6,7 @@
     <a class="navbar-brand navLogo" href="/project">NEU Service Learning</a>
     <form class="form-inline">
         <!--ADMIN DROPDOWN-->
-        <div class="float-left inner-container dropdown navbar-left" ng-show="navController.isAdmin">
+        <div class="float-left inner-container dropdown navbar-left" ng-show="true">
             <button href="" class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">
                 Admin <span class="caret"></span>
             </button>
@@ -18,9 +18,44 @@
             </ul>
         </div>
 
-        <!--STUDENT DROPDOWN-->
-        <!--TA DROPDOWN-->
-        <!--PROFESSOR DROPDOWN-->
+        <!--&lt;!&ndash;STUDENT DROPDOWN&ndash;&gt;-->
+        <!--<div class="float-left inner-container dropdown navbar-left" ng-show="navController.isStudent">-->
+            <!--<button href="" class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">-->
+                <!--Admin <span class="caret"></span>-->
+            <!--</button>-->
+            <!--<ul class="dropdown-menu" role="menu">-->
+                <!--<li class="dropdown-item"><a href="#!/admin">Add Hours</a></li>-->
+                <!--<li class="dropdown-item"><a href="#!/admin">View Hours</a></li>-->
+                <!--<li class="dropdown-item"><a href="#!/admin">Edit Hours</a></li>-->
+                <!--<li class="dropdown-item"><a href="#!/admin">Edit Profile</a></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+
+        <!--&lt;!&ndash;TA DROPDOWN&ndash;&gt;-->
+        <!--<div class="float-left inner-container dropdown navbar-left" ng-show="navController.isTA">-->
+            <!--<button href="" class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">-->
+                <!--Admin <span class="caret"></span>-->
+            <!--</button>-->
+            <!--<ul class="dropdown-menu" role="menu">-->
+                <!--<li class="dropdown-item"><a href="#!/admin">Edit Users</a></li>-->
+                <!--<li class="dropdown-item"><a href="#!/admin">Edit Partners</a></li>-->
+                <!--<li class="dropdown-item"><a href="#!/admin">Edit Courses</a></li>-->
+                <!--<li class="dropdown-item"><a href="#!/admin">Edit Positions</a></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+        <!---->
+        <!--&lt;!&ndash;PROFESSOR DROPDOWN&ndash;&gt;-->
+        <!--<div class="float-left inner-container dropdown navbar-left" ng-show="navController.isProfessor">-->
+            <!--<button href="" class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">-->
+                <!--Admin <span class="caret"></span>-->
+            <!--</button>-->
+            <!--<ul class="dropdown-menu" role="menu">-->
+                <!--<li class="dropdown-item"><a href="#!/admin">Edit Users</a></li>-->
+                <!--<li class="dropdown-item"><a href="#!/admin">Edit Partners</a></li>-->
+                <!--<li class="dropdown-item"><a href="#!/admin">Edit Courses</a></li>-->
+                <!--<li class="dropdown-item"><a href="#!/admin">Edit Positions</a></li>-->
+            <!--</ul>-->
+        <!--</div>-->
 
             <div class="nav-item" ng-show='navController.currentUser'>
                 <a class="btn btn-primary btn-outline-primary" href="/project/#!/profile/{{navController.currentUser.username}}">
