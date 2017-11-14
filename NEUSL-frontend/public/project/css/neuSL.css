@@ -1,3 +1,11 @@
+.bottom-button {
+    margin:5px;
+}
+
+.home-history-list {
+    margin:5px;
+}
+
 .login-container {
 }
 
@@ -27,4 +35,8 @@ ul.quick-hours li.quick-hours-item:last-child {
 .heading-text {
     padding-top: 5px;
     padding-bottom: 5px;
+}
+
+.profile-edit-headings {
+    padding-top: 5px;
 }

@@ -49,7 +49,7 @@ function getTemplate() {
 		'				<!-- `browser-default` class is being used as materializecss framework override default select css-->' +
 		'				<!-- Thus to prevent this, adding a class. Materializecss is a famous framework for Material Design. -->' +
 		'				<select ng-model="startingHour" class="browser-default">' +
-		'					<option ng-repeat="option in startingTimeHoursRange" ng-disabled="option.disabled" value="{{option.value}}">{{option.name}}</option>' +
+		'					<option ng-repeat="option in startingTimeEmploymentRange" ng-disabled="option.disabled" value="{{option.value}}">{{option.name}}</option>' +
 		'				</select>' +
 		'				:' +
 		'				<select ng-model="startingMinute" class="browser-default">' +
@@ -61,7 +61,7 @@ function getTemplate() {
 		'			End:' +
 		'			<span class="angular-time-picker-float--right">' +
 		'				<select ng-model="endingHour" class="browser-default">' +
-		'					<option ng-repeat="option in endingTimeHoursRange" ng-disabled="option.disabled" value="{{option.value}}">{{option.name}}</option>' +
+		'					<option ng-repeat="option in endingTimeemploymentRange" ng-disabled="option.disabled" value="{{option.value}}">{{option.name}}</option>' +
 		'				</select>' +
 		'				:' +
 		'				<select ng-model="endingMinute" class="browser-default">' +
@@ -106,7 +106,7 @@ angular.module('wingify.timePicker', [])
 			scope.theme = scope.theme ? ('angular-time-picker-' + scope.theme) : 'angular-time-picker-light'; // by default light theme
 
 			scope.timeHourFormat = (scope.format && parseInt(scope.format, 10) === 12) ? 12 : 24;
-			// For hours dropdown (0 - 23)
+			// For employments dropdown (0 - 23)
 			for (i = 0; i < scope.timeHourFormat; i++) {
 				timeHoursRange.push({
 					name: (i < 10) ? ('0' + i) : i + '',
@@ -213,7 +213,7 @@ angular.module('wingify.timePicker', [])
 			};
 
 			/**
-			 * Whenever hours changed, need to validate the time (start time < end time)
+			 * Whenever employments changed, need to validate the time (start time < end time)
 			 * Also, make the items in dropdown disabled if not applicable
 			 */
 			scope.validateHours = function () {

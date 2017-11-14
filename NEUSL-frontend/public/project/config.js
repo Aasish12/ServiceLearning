@@ -21,9 +21,19 @@
                 controller:  "homeController",
                 controllerAs: "model"
             })
-            .when("/addhours", {
-                templateUrl: "views/hours/templates/new-hours.view.client.html",
-                controller:  "newHoursController",
+            .when("/new/hours", {
+                templateUrl: "views/employments/templates/new-employment.view.client.html",
+                controller:  "newEmploymentController",
+                controllerAs: "model"
+            })
+            .when("/history", {
+                templateUrl: "views/employments/templates/view-employment-history.view.client.html",
+                controller:  "employmentHistoryController",
+                controllerAs: "model"
+            })
+            .when("/editHours", {
+                templateUrl: "views/employments/templates/new-employment.view.client.html",
+                controller:  "editEmploymentController",
                 controllerAs: "model"
             })
             .when("/profile", {
@@ -75,25 +85,25 @@
                 templateUrl:"views/admin/templates/admin-partner-control.view.client.html",
                 controller: "adminPartnerController",
                 controllerAs: "model",
-                resolve: {
-                    adminUser : checkAdmin
-                }
+                // resolve: {
+                //     adminUser : checkAdmin
+                // }
             })
             .when("/admin/positions", {
                 templateUrl:"views/admin/templates/admin-position-control.view.client.html",
                 controller: "adminPositionController",
                 controllerAs: "model",
-                resolve: {
-                    adminUser : checkAdmin
-                }
+                // resolve: {
+                //     adminUser : checkAdmin
+                // }
             })
             .when("/admin/users", {
                 templateUrl:"views/admin/templates/admin-user-control.view.client.html",
                 controller: "adminEditController",
                 controllerAs: "model",
-                resolve: {
-                    adminUser: checkAdmin
-                }
+                // resolve: {
+                //     adminUser: checkAdmin
+                // }
             })
             .when("/terminate-auth", {
                 templateUrl: "views/home/templates/terminate-auth.view.client.html"

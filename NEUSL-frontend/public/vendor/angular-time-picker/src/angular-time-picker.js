@@ -60,7 +60,7 @@ angular.module('wingify.timePicker', ['html2js'])
 			scope.theme = scope.theme ? ('angular-time-picker-' + scope.theme) : 'angular-time-picker-light'; // by default light theme
 
 			scope.timeHourFormat = (scope.format && parseInt(scope.format, 10) === 12) ? 12 : 24;
-			// For hours dropdown (0 - 23)
+			// For employments dropdown (0 - 23)
 			for (i = 0; i < scope.timeHourFormat; i++) {
 				timeHoursRange.push({
 					name: (i < 10) ? ('0' + i) : i + '',
@@ -167,7 +167,7 @@ angular.module('wingify.timePicker', ['html2js'])
 			};
 
 			/**
-			 * Whenever hours changed, need to validate the time (start time < end time)
+			 * Whenever employments changed, need to validate the time (start time < end time)
 			 * Also, make the items in dropdown disabled if not applicable
 			 */
 			scope.validateHours = function () {
