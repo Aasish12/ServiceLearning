@@ -1,4 +1,3 @@
-drop database test;
 create database if not exists test;
 
 USE test;
