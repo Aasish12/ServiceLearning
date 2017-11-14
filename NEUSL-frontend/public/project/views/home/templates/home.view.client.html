@@ -1,0 +1,47 @@
+<sl-navbar></sl-navbar>
+<div class="container-fluid home-hours col-lg-6 col-md-8">
+<h3 class="heading-text">Add Hours</h3>
+<div class="no-positions media" ng-show="!model.user.positions || len(model.user.positions) < 1">
+    <h5 class="notification-text media-body">No current positions to add hours to.</h5>
+    <button id="addPosnButton" ng-click="model.addPosition()" class="btn btn-outline-primary btn-large float-right">
+        <i class="fa fa-plus-circle" aria-hidden="true"></i>  Add New Position
+    </button>
+</div>
+
+    <!--actual code w ng-repeat-->
+<ul class="list-unstyled quick-hours">
+    <li class="media quick-hours-item" ng-repeat="position in model.user.positions">
+        <div class="media-body">
+            <h5>{{position.name}}</h5>
+        </div>
+        <button id="addHrsButton" ng-click="model.addHours(position)" class="btn btn-outline-primary btn-large float-right">
+            <i class="fa fa-plus-circle" aria-hidden="true"></i>  Add Hours
+        </button>
+    </li>
+</ul>
+
+    <!--visual sample-->
+    <ul class="list-unstyled quick-hours">
+    <li class="media quick-hours-item">
+        <div class="media-body">
+            <h5>pos1</h5>
+        </div>
+        <a id="addHrsButton1" href="#!/addhours" class="btn btn-outline-primary btn-large float-right">
+            <i class="fa fa-plus-circle" aria-hidden="true"></i>  Add Hours
+        </a>
+    </li>
+        <li class="media quick-hours-item">
+            <div class="media-body">
+                <h5>pos 2</h5>
+            </div>
+            <a id="addHrsButton2" ng-click="model.addHours(position)" class="btn btn-outline-primary btn-large float-right">
+                <i class="fa fa-plus-circle" aria-hidden="true"></i>  Add Hours
+            </a>
+        </li>
+</ul>
+
+
+</div>
+<div class="container-fluid stats col-lg-6 col-md-8">
+    <h3 class="heading-text">Statistics</h3>
+</div>

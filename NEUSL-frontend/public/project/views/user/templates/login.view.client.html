@@ -1,7 +1,10 @@
-<div class="container-fluid">
-    <div class="alert alert-danger" ng-show="model.errorMessage">
-        {{model.errorMessage}}
-    </div>
+<nav id="loginNavbar" class="navbar navbar-fixed-top navbar-dark bg-dark sl-nav">
+    <a class="navbar-brand navLogo" href="/project">NEU Service Learning</a>
+</nav>
+<div class="alert alert-danger container-fluid" ng-show="model.errorMessage">
+    {{model.errorMessage}}
+</div>
+<div class="container-fluid login-container col-lg-6 col-md-8">
     <h1>Login</h1>
     <input type="text"
            class="form-control"

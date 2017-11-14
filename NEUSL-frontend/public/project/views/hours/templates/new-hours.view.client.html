@@ -1,0 +1,22 @@
+<sl-navbar></sl-navbar>
+<div class="container">
+    <h5>Add Hours for {{model.position.name}} at {{model.position.partner}}</h5>
+    <a>Date</a>
+    <input type="date"
+           class="form-control"
+           placeholder="Select date"
+           ng-model="model.position.date"
+           id="datepicker"/>
+    <a>Time</a>
+    <wy-time-picker
+            data-dropdown-toggle-state="settings.second.dropdownToggleState"
+            data-time-settings="settings.second.time"
+            data-apply-callback="onApplyTimePicker()"
+            data-clear-callback="onClearTimePicker()"
+            data-no-validation="settings.second.noValidation">
+    </wy-time-picker>
+    <a class="btn btn-primary btn-block"
+       ng-click="model.addHours(model.position)">Add</a>
+    <a class="btn btn-danger  btn-block"
+       href="#!/home">Cancel</a>
+</div>

@@ -16,24 +16,44 @@
                 controller:  "loginController",
                 controllerAs: "model"
             })
-            .when("/profile/:username", {
+            .when("/home", {
+                templateUrl: "views/home/templates/home.view.client.html",
+                controller:  "homeController",
+                controllerAs: "model"
+            })
+            .when("/addhours", {
+                templateUrl: "views/hours/templates/new-hours.view.client.html",
+                controller:  "newHoursController",
+                controllerAs: "model"
+            })
+            .when("/profile", {
                 templateUrl: "views/user/templates/profile.view.client.html",
                 controller: "profileController",
-                controllerAs: "model",
-                resolve: {
-                    paramUser: checkProfileUser
-                }
+                controllerAs: "model"
             })
-            .when("/profile/:username/edit", {
-                templateUrl:"views/user/templates/profile-edit.view.client.html",
-                controller: "profileEditController",
-                controllerAs: "model",
-                resolve: {
-                    currentUser: checkLogin,
-                    profileUser: checkProfileUser,
-                    useless: checkEditProfile
-                }
+            .when("/profile/edit", {
+                templateUrl:"views/user/templates/edit-profile.view.client.html",
+                controller: "editProfileController",
+                controllerAs: "model"
             })
+            // .when("/:username/profile", {
+            //     templateUrl: "views/user/templates/profile.view.client.html",
+            //     controller: "profileController",
+            //     controllerAs: "model",
+            //     resolve: {
+            //         paramUser: checkProfileUser
+            //     }
+            // })
+            // .when("/profile/:username/edit", {
+            //     templateUrl:"views/user/templates/profile-edit.view.client.html",
+            //     controller: "profileEditController",
+            //     controllerAs: "model",
+            //     resolve: {
+            //         currentUser: checkLogin,
+            //         profileUser: checkProfileUser,
+            //         useless: checkEditProfile
+            //     }
+            // })
             .when("/unauthorized", {
                 templateUrl: "views/user/templates/unauthorized.view.client.html"
             })
@@ -44,7 +64,7 @@
             })
             // // admin routes
             .when("/admin/edit", {
-                templateUrl:"views/user/templates/admin-control.view.client.html",
+                templateUrl:"views/admin/templates/admin-user-control.view.client.html",
                 controller: "adminEditController",
                 controllerAs: "model",
                 resolve: {
@@ -52,7 +72,7 @@
                 }
             })
             .when("/admin/new", {
-                templateUrl:"views/user/templates/admin-create-user.view.client.html",
+                templateUrl:"views/admin/templates/admin-create-user.view.client.html",
                 controller: "adminEditController",
                 controllerAs: "model",
                 resolve: {
