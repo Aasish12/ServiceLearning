@@ -57,12 +57,12 @@
             <!--</ul>-->
         <!--</div>-->
 
-            <div class="nav-item" ng-show='navController.currentUser'>
+            <div class="nav-item" ng-show='true'>
                 <a class="btn btn-primary btn-outline-primary" href="/project/#!/profile/{{navController.currentUser.username}}">
                     {{navController.currentUser.username}}
                 </a>
             </div>
-            <div class="nav-item" ng-show="navController.currentUser">
+            <div class="nav-item" ng-show="true">
                 <button ng-show="!currentUser" class="pull-right btn navbar-menus btn-outline-danger"
                         ng-click="navController.logout()">Logout</button>
             </div>

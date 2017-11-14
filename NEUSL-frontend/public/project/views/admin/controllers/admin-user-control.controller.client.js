@@ -1,9 +1,9 @@
 (function () {
     angular
         .module("NEUSL")
-        .controller("adminPositionController", adminPositionController);
+        .controller("adminUserController", adminUserController);
 
-    function adminPositionController($window, $location, $filter) {
+    function adminUserController($window, $location, $filter) {
         var model = this;
 
         function init() {

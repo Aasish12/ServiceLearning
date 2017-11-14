@@ -63,16 +63,32 @@
                 controllerAs: "model"
             })
             // // admin routes
-            .when("/admin/edit", {
-                templateUrl:"views/admin/templates/admin-user-control.view.client.html",
-                controller: "adminEditController",
+            .when("/admin/courses", {
+                templateUrl:"views/admin/templates/admin-course-control.view.client.html",
+                controller: "adminCourseController",
+                controllerAs: "model"
+                // resolve: {
+                //     adminUser : checkAdmin
+                // }
+            })
+            .when("/admin/partners", {
+                templateUrl:"views/admin/templates/admin-partner-control.view.client.html",
+                controller: "adminPartnerController",
                 controllerAs: "model",
                 resolve: {
                     adminUser : checkAdmin
                 }
             })
-            .when("/admin/new", {
-                templateUrl:"views/admin/templates/admin-create-user.view.client.html",
+            .when("/admin/positions", {
+                templateUrl:"views/admin/templates/admin-position-control.view.client.html",
+                controller: "adminPositionController",
+                controllerAs: "model",
+                resolve: {
+                    adminUser : checkAdmin
+                }
+            })
+            .when("/admin/users", {
+                templateUrl:"views/admin/templates/admin-user-control.view.client.html",
                 controller: "adminEditController",
                 controllerAs: "model",
                 resolve: {
