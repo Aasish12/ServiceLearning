@@ -1,4 +1,6 @@
+drop database test;
 create database if not exists test;
+
 USE test;
 
 /*
@@ -40,6 +42,12 @@ create table Locations (
 	,primary key (ID)
 );
 
+create table Buckets (
+	ID int not null
+    ,Description varchar(50) not null
+    ,primary key (ID)
+);
+
 create table Roles (
 	ID int not null auto_increment
     ,Description varchar(50) not null
@@ -59,20 +67,6 @@ create table Positions (
     
 );
 
-/*
-Order of tables:
-Partner
-Location
-Role
-Position
-User
-Employment
-Course
-Enrollment
-Hour
-
-*/
-
 create table Users (
 	ID int not null auto_increment
     ,FirstName varchar(60)
@@ -90,11 +84,11 @@ create table Employments (
     ,EmploymentStartDate DateTime not null
     ,EmploymentEndDate DateTime
     ,StudentId int
-    ,PositionId int
+    ,PartnerId int
     
     ,primary key (ID)
     ,foreign key (StudentId) references Users(ID)
-    ,foreign key (PositionId) references Positions(ID)
+    ,foreign key (PartnerId) references Partners(ID)
 
 
 );
@@ -105,7 +99,7 @@ create table Courses (
     , ProfessorId int
     , Description varchar (255)
     , DateCreated DateTime not null
-
+	, CRN int
 	,primary key (ID)
     ,foreign key (ProfessorId) references Users(ID)
 
