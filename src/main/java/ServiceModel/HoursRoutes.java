@@ -1,10 +1,13 @@
 package ServiceModel;
 
-import ServiceInterface.HoursServices;
+import Data.Hours;
 import ServiceModel.Types.HoursType;
+import ServiceInterface.HoursServices;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.sql.SQLException;
+import java.util.List;
 import java.util.ArrayList;
 
 /*
@@ -12,6 +15,7 @@ import java.util.ArrayList;
 * GOAL: Define routes, call services to return data.
 *
 * Kofi Collins-Sibley
+* Bailey Kay
 * */
 @Path("/hours/")
 public class HoursRoutes {
@@ -19,29 +23,45 @@ public class HoursRoutes {
 
     /* Get routes */
     @GET
+    @Path("/all")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Hours> getAllHours() throws SQLException {
+        return services.GetAllHours();
+    }
+
+    @GET
     @Path("/getHoursByStudentId/{studentId}")
     @Produces(MediaType.APPLICATION_JSON)
-    public ArrayList<HoursType> getHoursByStudentId(@PathParam("studentId") int studentId) {
-        return services.GetHoursByStudentId(studentId);
+    public List<Hours> getHoursByStudentId(@PathParam("studentId") int studentId) throws SQLException {
+        return services.getHoursByStudentId(studentId);
     }
 
     @GET
     @Path("/getHoursByCourseId/{courseId}")
     @Produces(MediaType.APPLICATION_JSON)
-    public ArrayList<HoursType> getHoursByCourseId(@PathParam("courseId") int courseId) {
-        return services.GetHoursByCourseId(courseId);
+    public List<Hours> getHoursByCourseId(@PathParam("courseId") int courseId) throws SQLException {
+        return services.getHoursByCourseId(courseId);
     }
 
     @GET
     @Path("/getNewHours")
     @Produces(MediaType.APPLICATION_JSON)
-    public HoursType getNewHours() { return new HoursType(); }
+    public Hours getNewHours() {
+        return new Hours();
+    }
 
     /* Post & Put */
     @POST
     @Path("/post")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void recordNewHours(HoursType hours) {
-        services.PostHours(hours);
+    public void postNewHours(Hours hours) throws SQLException {
+        services.postHours(hours);
+    }
+
+    @PUT
+    @Path("/put")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void putHours(Hours hours) throws SQLException {
+        services.putHours(hours);
     }
 }
