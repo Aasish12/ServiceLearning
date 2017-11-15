@@ -4,8 +4,8 @@ import Data.Location;
 
 import ServiceInterface.LocationServices;
 
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
+import org.springframework.web.bind.annotation.*;
+
 import java.sql.SQLException;
 import java.util.List;
 
@@ -16,59 +16,45 @@ import java.util.List;
 *
 * Josh Peyok
 * */
-@Path("/locations")
+@RestController
 public class LocationRoutes {
     private LocationServices services = new LocationServices();
 
     /* Get routes */
-    @GET
-    @Path("/all")
-    @Produces(MediaType.APPLICATION_JSON)
+    @RequestMapping(value = "/locations/all", method = RequestMethod.GET)
     public List<Location> getAllLocations() throws SQLException {
         return services.getAllLocations();
     }
 
     /* Search for locations by location fields */
-    @GET
-    @Path("/search/{searchText}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<Location> searchLocations(@PathParam("searchText") String searchText) throws SQLException {
+    @RequestMapping(value = "/locations/search/{searchText}", method = RequestMethod.GET)
+    public List<Location> searchLocations(@PathVariable("searchText") String searchText) throws SQLException {
         return services.searchLocations(searchText);
     }
 
     /* Search for locations by specified columns */
-    @GET
-    @Path("/search/{searchColumn}/{searchText}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<Location> searchLocations(@PathParam("searchColumn") String searchColumn, @PathParam("searchText") String searchText) throws SQLException {
+    @RequestMapping(value = "/locations/search/{searchColumn}/{searchText}", method = RequestMethod.GET)
+    public List<Location> searchLocations(@PathVariable("searchColumn") String searchColumn, @PathVariable("searchText") String searchText) throws SQLException {
         return services.searchSpecificLocations(searchColumn, searchText);
     }
 
-    @GET
-    @Path("/getById/{locationId}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Location getLocationById(@PathParam("locationId") int locationId) throws SQLException {
+    @RequestMapping(value = "/locations/getById/{locationId}", method = RequestMethod.GET)
+    public Location getLocationById(@PathVariable("locationId") int locationId) throws SQLException {
         return services.getById(locationId);
     }
 
-    @GET
-    @Path("/getNewLocation")
-    @Produces(MediaType.APPLICATION_JSON)
+    @RequestMapping(value = "/locations/getNewLocation", method = RequestMethod.GET)
     public Location getNewLocation() {
         return new Location();
     }
 
     /* Post & Put */
-    @POST
-    @Path("/post")
-    @Consumes(MediaType.APPLICATION_JSON)
+    @RequestMapping(value = "locations/post", method = RequestMethod.POST)
     public void postNewLocation(Location location) throws SQLException {
         services.postLocation(location);
     }
 
-    @PUT
-    @Path("/put")
-    @Consumes(MediaType.APPLICATION_JSON)
+    @RequestMapping(value = "/locations/put", method = RequestMethod.PUT)
     public void putLocation(Location location) throws SQLException {
         services.putLocation(location);
     }
