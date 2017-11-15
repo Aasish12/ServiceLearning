@@ -1,31 +1,35 @@
 package ServiceInterface;
 
+import java.sql.SQLException;
 import java.util.*;
+
+import DataRepository.CourseRepository;
 import ServiceModel.Types.*;
 
+import Data.Course;
 /*
 * Logic for courses
 *
 * Kofi Collins-Sibley
 * */
 public class CourseServices {
-    public ArrayList<CourseType> GetAllCourses() {
-        return null;
+    public List<Course> GetAllCourses() throws SQLException {
+        return new CourseRepository().getAllCourses();
     }
 
-    public ArrayList<CourseType> SearchCourses(String searchText) {
-        return null;
+    public List<Course> SearchCourses(String searchText) throws SQLException {
+        return new CourseRepository().searchCourse(searchText);
     }
 
-    public CourseType GetById(int courseId) {
-        return null;
+    public Course GetById(int courseId) throws SQLException {
+        return new CourseRepository().getCourseById(courseId);
     }
 
-    public void PostCourse(CourseType newCourse) {
-
+    public void PostCourse(Course newCourse) throws SQLException {
+        new CourseRepository().post(newCourse);
     }
 
-    public void PutCourse(CourseType course) {
-
+    public void PutCourse(Course course) throws SQLException {
+        new CourseRepository().put(course);
     }
 }

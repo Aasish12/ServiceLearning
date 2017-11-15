@@ -5,8 +5,11 @@ import ServiceModel.Types.CourseType;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.ArrayList;
 
+import java.sql.SQLException;
+import java.util.List;
+
+import Data.Course;
 /*
 * Course specific API route definitions.
 * GOAL: Define routes, call services to return data.
@@ -21,12 +24,13 @@ public class CourseRoutes {
     @GET
     @Path("/all")
     @Produces(MediaType.APPLICATION_JSON)
-    public ArrayList<CourseType> getAllCourses() { return services.GetAllCourses(); }
+    public List<Course> getAllCourses() throws SQLException
+    { return services.GetAllCourses(); }
 
     @GET
     @Path("/search/{searchText}")
     @Produces(MediaType.APPLICATION_JSON)
-    public ArrayList<CourseType> searchCourses(@PathParam("searchText") String searchText) {
+    public List<Course> searchCourses(@PathParam("searchText") String searchText) throws SQLException {
 
         return services.SearchCourses(searchText);
     }
@@ -34,29 +38,29 @@ public class CourseRoutes {
     @GET
     @Path("/getById/{courseId}")
     @Produces(MediaType.APPLICATION_JSON)
-    public CourseType getCourseById(@PathParam("courseId") int courseId) {
+    public Course getCourseById(@PathParam("courseId") int courseId) throws SQLException {
         return services.GetById(courseId);
     }
 
     @GET
     @Path("/getNewCourse")
     @Produces(MediaType.APPLICATION_JSON)
-    public CourseType getNewCourse() {
-        return new CourseType();
+    public Course getNewCourse() {
+        return new Course();
     }
 
     /* Post & Put */
     @POST
     @Path("/post")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void postNewCourse(CourseType course) {
+    public void postNewCourse(Course course) throws SQLException {
         services.PostCourse(course);
     }
 
     @PUT
     @Path("/put")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void putCourse(CourseType course) {
+    public void putCourse(Course course) throws SQLException {
         services.PutCourse(course);
     }
 }
