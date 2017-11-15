@@ -3,8 +3,8 @@ package ServiceModel;
 import Data.User;
 import ServiceInterface.UserServices;
 
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
+import org.springframework.web.bind.annotation.*;
+
 import java.sql.SQLException;
 import java.util.List;
 
@@ -14,52 +14,45 @@ import java.util.List;
 *
 * Kofi Collins-Sibley
 * */
-@Path("/users")
+@RestController
 public class UserRoutes {
     private UserServices services = new UserServices();
 
+    @RequestMapping("/")
+    public String index() {
+        return "Greetings from Spring Boot!";
+    }
+
     /* Get routes */
-    @GET
-    @Path("/all")
-    @Produces(MediaType.APPLICATION_JSON)
+    @RequestMapping(value = "/users/all", method = RequestMethod.GET)
     public List<User> getAllUsers() throws SQLException {
         return services.GetAllUsers();
     }
 
     /* Search for users by first name, last name, or email */
-    @GET
-    @Path("/search/{searchText}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<User> searchUsers(@PathParam("searchText") String searchText) throws SQLException {
-        return services.SearchUsers(searchText);
+    @RequestMapping(value = "/users/search/{searchColumn}/{searchText}", method = RequestMethod.GET)
+    public List<User> searchUsers(@PathVariable("searchColumn") String searchColumn, @PathVariable("searchText") String searchText) throws SQLException {
+        return services.SearchUsers(searchColumn, searchText);
     }
 
-    @GET
-    @Path("/getById/{userId}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public User getUserById(@PathParam("userId") int userId) throws SQLException {
+    @RequestMapping(value = "/users/getById/{userId}", method = RequestMethod.GET)
+    public User getUserById(@PathVariable("userId") int userId) throws SQLException {
         return services.GetById(userId);
     }
 
-    @GET
-    @Path("/getNewUser")
-    @Produces(MediaType.APPLICATION_JSON)
+    @RequestMapping(value = "/users/getNewUser", method = RequestMethod.GET)
     public User getNewUser() {
         return new User();
     }
 
     /* Post & Put */
-    @POST
-    @Path("/post")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public void postNewUser(User user) throws SQLException {
+    @RequestMapping(value = "/users/post", method = RequestMethod.POST)
+    public void postNewUser(@RequestBody User user) throws SQLException {
         services.PostUser(user);
     }
 
-    @PUT
-    @Path("/put")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public void putUser(User user) throws SQLException {
+    @RequestMapping(value = "/users/put", method = RequestMethod.PUT)
+    public void putUser(@RequestBody User user) throws SQLException {
         services.PutUser(user);
     }
 }

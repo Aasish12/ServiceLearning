@@ -2,12 +2,20 @@ package ServiceModel;
 
 import Data.Hours;
 import ServiceModel.Types.HoursType;
+<<<<<<< HEAD
 import ServiceInterface.HoursServices;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.sql.SQLException;
 import java.util.List;
+=======
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+>>>>>>> SD103-38-MOC-Deploy
 import java.util.ArrayList;
 
 /*
@@ -17,7 +25,8 @@ import java.util.ArrayList;
 * Kofi Collins-Sibley
 * Bailey Kay
 * */
-@Path("/hours/")
+
+@RestController
 public class HoursRoutes {
     private HoursServices services = new HoursServices();
 
