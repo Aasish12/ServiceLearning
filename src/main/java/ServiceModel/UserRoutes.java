@@ -30,9 +30,9 @@ public class UserRoutes {
     }
 
     /* Search for users by first name, last name, or email */
-    @RequestMapping(value = "/users/search/{searchText}", method = RequestMethod.GET)
-    public List<User> searchUsers(@PathVariable("searchText") String searchText) throws SQLException {
-        return services.SearchUsers(searchText);
+    @RequestMapping(value = "/users/search/{searchColumn}/{searchText}", method = RequestMethod.GET)
+    public List<User> searchUsers(@PathVariable("searchColumn") String searchColumn, @PathVariable("searchText") String searchText) throws SQLException {
+        return services.SearchUsers(searchColumn, searchText);
     }
 
     @RequestMapping(value = "/users/getById/{userId}", method = RequestMethod.GET)
