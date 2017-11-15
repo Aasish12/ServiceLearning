@@ -1,11 +1,10 @@
 package ServiceModel;
 
 import Data.Partner;
-import ServiceModel.Types.PartnerType;
 import ServiceInterface.PartnerServices;
 
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
+import org.springframework.web.bind.annotation.*;
+
 import java.sql.SQLException;
 import java.util.List;
 
@@ -17,50 +16,38 @@ import java.util.List;
 * Josh Peyok
 * */
 
-@Path("/partners")
+@RestController
 public class PartnerRoutes {
     private PartnerServices services = new PartnerServices();
 
     //getters
-    @GET
-    @Path("/all")
-    @Produces(MediaType.APPLICATION_JSON)
+    @RequestMapping(value = "/partners/all", method = RequestMethod.GET)
     public List<Partner> getAllPartners() throws SQLException {
         return services.getAllPartners();
     }
 
-    @GET
-    @Path("/search/{searchText}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<Partner> searchPartners(@PathParam("searchText") String searchText) throws SQLException {
+    @RequestMapping(value = "/partners/search/{searchText}", method = RequestMethod.GET)
+    public List<Partner> searchPartners(@PathVariable("searchText") String searchText) throws SQLException {
         return services.searchPartners(searchText);
     }
 
-    @GET
-    @Path("/getById/{partnerId}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Partner getPartnerById(@PathParam("partnerId") int partnerId) throws SQLException {
+    @RequestMapping(value = "/partners/getById/{partnerId}", method = RequestMethod.GET)
+    public Partner getPartnerById(@PathVariable("partnerId") int partnerId) throws SQLException {
         return services.getById(partnerId);
     }
 
-    @GET
-    @Path("/getNewPartner")
-    @Produces(MediaType.APPLICATION_JSON)
+    @RequestMapping(value = "/partners/getNewPartner", method = RequestMethod.GET)
     public Partner getNewPartner() {
         return new Partner();
     }
 
     //Post and Put
-    @POST
-    @Path("/post")
-    @Consumes(MediaType.APPLICATION_JSON)
+    @RequestMapping(value = "/partners/post", method = RequestMethod.POST)
     public void postPartner(Partner partner) throws SQLException {
         services.postPartner(partner);
     }
 
-    @PUT
-    @Path("/put")
-    @Consumes(MediaType.APPLICATION_JSON)
+    @RequestMapping(value = "/partners/put", method = RequestMethod.PUT)
     public void putPartner(Partner partner) throws SQLException {
         services.putPartner(partner);
     }
