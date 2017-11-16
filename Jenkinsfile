@@ -25,7 +25,7 @@ pipeline {
 			steps {
 				checkout scm
 				echo 'Deploying...'
-				withCredentials([file(credentialsId: 'SD103-ssh-pem', variable: 'SD103_PEM_PATH')]) {
+				withCredentials([file(credentialsId: 'SD103-ssh-pem.pem', variable: 'SD103_PEM_PATH')]) {
 					sh 'chmod + x deploy.sh; bash deploy.sh'
 				}
 			}
