@@ -21,22 +21,13 @@ pipeline {
 		}
 
 		stage('Deploy') {
-			switch(env.BRANCH_NAME) {
-				case 'SD103-Deploy-v1':
-					env.DEPLOYMENT_ENVIRONMENT = 'prod';
-					break;
-				default:
-					env.DEPLOYMENT_ENVIRONMENT = 'none';
-			}
-
-			if (env.DEPLOYMENT_ENVIRONMENT == 'prod') {
+			when { branch 'SD103-Deploy-v1' }
+			steps {
 				checkout scm
 				echo 'Deploying...'
 				withCredentials([file(credentialsId: 'SD103-ssh-pem', variable: 'SD103_PEM_PATH')]) {
 					sh 'chmod + x deploy.sh; bash deploy.sh'
 				}
-			} else {
-				echo 'Not deploying...'
 			}
 		}
 	}
