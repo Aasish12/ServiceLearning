@@ -24,7 +24,7 @@ app.use(express.static(__dirname + '/public'));
 
 require("./project/app");
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3001;
 
 app.listen(port);
 console.log("Node server listening on port " + port);

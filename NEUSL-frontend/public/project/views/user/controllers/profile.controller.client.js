@@ -9,6 +9,7 @@
         //declare functions
 
         function init() {
+            model.user = userService.getUser();
 
 
         }

@@ -7,6 +7,7 @@
         var model = this;
 
         function init() {
+            model.positions
 
         }
         init();
