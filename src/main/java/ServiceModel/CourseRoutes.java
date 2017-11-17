@@ -2,6 +2,10 @@ package ServiceModel;
 
 import ServiceInterface.CourseServices;
 import ServiceModel.Types.CourseType;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -16,7 +20,7 @@ import Data.Course;
 *
 * Kofi Collins-Sibley
 * */
-@Path("/courses")
+@RestController
 public class CourseRoutes {
     private CourseServices services = new CourseServices();
 
@@ -31,6 +35,7 @@ public class CourseRoutes {
     @Path("/search/{searchText}")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Course> searchCourses(@PathParam("searchText") String searchText) throws SQLException {
+
 
         return services.SearchCourses(searchText);
     }
@@ -61,6 +66,7 @@ public class CourseRoutes {
     @Path("/put")
     @Consumes(MediaType.APPLICATION_JSON)
     public void putCourse(Course course) throws SQLException {
+
         services.PutCourse(course);
     }
 }
