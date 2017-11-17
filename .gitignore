@@ -50,3 +50,6 @@ fabric.properties
 
 # MacOS specific
 **/.DS_Store
+
+# node modules
+node_modules
