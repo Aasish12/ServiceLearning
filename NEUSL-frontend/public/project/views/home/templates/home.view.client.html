@@ -3,9 +3,9 @@
 <h3 class="heading-text">Add Hours</h3>
 <div class="no-positions media" ng-show="!model.user.positions || len(model.user.positions) < 1">
     <h5 class="notification-text media-body">No current positions to add hours to.</h5>
-    <button id="addPosnButton" ng-click="model.addPosition()" class="btn btn-outline-info btn-large float-right">
+    <a id="addPosnButton" href="#!/position/new" class="btn btn-outline-info btn-large float-right">
         <i class="fa fa-plus-circle" aria-hidden="true"></i>  Add New Position
-    </button>
+    </a>
 </div>
 
     <!--actual code w ng-repeat-->
@@ -59,9 +59,9 @@
 <div class="container-fluid col-lg-6 col-md-8">
     <div class="no-positions media" ng-show="!model.user.positions || len(model.user.positions) < 1">
         <h3 class="notification-text media-body">SL Employment History</h3>
-        <button href="#!/history" class="btn btn-info btn-large float-right">
+        <a href="#!/history" class="btn btn-info btn-large float-right">
             All Employment History
-        </button>
+        </a>
     </div>
     <div class="list-group home-history-list">
         <div class="list-group-item list-group-item-action flex-column align-items-start history-list-item">

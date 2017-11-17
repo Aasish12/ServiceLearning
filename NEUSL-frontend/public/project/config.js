@@ -84,7 +84,7 @@
             .when("/admin/partners", {
                 templateUrl:"views/admin/templates/admin-partner-control.view.client.html",
                 controller: "adminPartnerController",
-                controllerAs: "model",
+                controllerAs: "model"
                 // resolve: {
                 //     adminUser : checkAdmin
                 // }
@@ -92,7 +92,7 @@
             .when("/admin/positions", {
                 templateUrl:"views/admin/templates/admin-position-control.view.client.html",
                 controller: "adminPositionController",
-                controllerAs: "model",
+                controllerAs: "model"
                 // resolve: {
                 //     adminUser : checkAdmin
                 // }
@@ -100,7 +100,7 @@
             .when("/admin/users", {
                 templateUrl:"views/admin/templates/admin-user-control.view.client.html",
                 controller: "adminEditController",
-                controllerAs: "model",
+                controllerAs: "model"
                 // resolve: {
                 //     adminUser: checkAdmin
                 // }
