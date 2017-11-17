@@ -17,6 +17,7 @@ pipeline {
 				echo "testing..."
 				sh 'mvn test || true'
 				junit 'target/surefire-reports/*.xml'
+				sh 'mvn sonar:sonar -Dsonar.host.url=http://128.31.24.224:9000'
 			}
 		}
 
