@@ -17,9 +17,15 @@ pipeline {
 				echo "testing..."
 				sh 'mvn test || true'
 				junit 'target/surefire-reports/*.xml'
-				sh 'mvn sonar:sonar -Dsonar.host.url=http://128.31.24.224:9000'
 			}
 		}
+		
+		stage('SonarQube') {
+            steps {
+                sh 'mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install -Dmaven.test.failure.ignore=true'
+                sh 'mvn sonar:sonar -Dsonar.host.url=http://128.31.24.224:9000'
+            }
+        }
 
 		stage('DeployMaster') {
 			when { branch 'master' }
