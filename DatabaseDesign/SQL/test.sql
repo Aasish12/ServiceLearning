@@ -137,7 +137,7 @@ create table Hours (
     ,foreign key (PositionId) references Positions(ID)
     ,foreign key (PartnerId) references Partners(ID)
     ,foreign key (LocationId) references Locations(ID)
-    ,foreign key (BudketId) references Buckets(ID)
+    ,foreign key (BucketId) references Buckets(ID)
 );
 
 
