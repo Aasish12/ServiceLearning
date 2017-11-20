@@ -43,12 +43,12 @@ public class HoursRoutes {
 
     /* Post & Put */
     @RequestMapping(value = "/hours/post", method = RequestMethod.POST)
-    public void postNewHours(Hours hours) throws SQLException {
+    public void postNewHours(@RequestBody Hours hours) throws SQLException {
         services.postHours(hours);
     }
 
     @RequestMapping(value = "/hours/put", method = RequestMethod.PUT)
-    public void putHours(Hours hours) throws SQLException {
+    public void putHours(@RequestBody Hours hours) throws SQLException {
         services.putHours(hours);
     }
 }
