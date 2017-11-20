@@ -1,4 +1,4 @@
-package ServiceModel.Tests;
+package ServiceModel;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,6 +11,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import org.springframework.boot.test.json.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -27,14 +28,14 @@ public class HoursRoutesTests {
     }
 
     @Test
-    public void testGetHoursByStudentId() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/hours/getHoursByStudentId/{studentId}")
+    public void testGetHoursByStudentId(int studentId) throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/hours/getHoursByStudentId/"+studentId)
                 .accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
     }
 
     @Test
-    public void testGetHoursByCourseId() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/hours/getHoursByCourseId/{courseId}")
+    public void testGetHoursByCourseId(int courseId) throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/hours/getHoursByCourseId/"+courseId)
                 .accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
     }
 
@@ -52,7 +53,7 @@ public class HoursRoutesTests {
 
     @Test
     public void testPutNewHours() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.post("/users/put")
+        mvc.perform(MockMvcRequestBuilders.put("/users/put")
                 .accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
     }
 
