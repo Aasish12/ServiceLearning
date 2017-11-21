@@ -77,6 +77,19 @@ public class PartnerRoutesTest {
 //        System.out.println(content);
     }
 
+    @Test
+    public void testPutPartner() throws Exception {
+        Partner p = new Partner(-1, "Peyok Inc", "Josh", "Peyok", "0123456789");
+
+
+        MvcResult mvr =  mvc.perform(MockMvcRequestBuilders.put("/partners/put/", p).accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andReturn();
+
+        String content = mvr.getResponse().getContentAsString();
+//        System.out.println(content);
+    }
+
 
 
 }

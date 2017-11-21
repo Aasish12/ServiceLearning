@@ -43,7 +43,10 @@ public class PartnerRoutes {
 
     //Post and Put
     @RequestMapping(value = "/partners/post", method = RequestMethod.POST)
-    public void postPartner(Partner partner) throws SQLException {
+    public void postPartner(@RequestBody Partner partner) throws SQLException {
+
+
+        System.out.println("route" + partner.toString());
         services.postPartner(partner);
     }
 

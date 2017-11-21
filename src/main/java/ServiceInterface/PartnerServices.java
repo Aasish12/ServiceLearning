@@ -32,6 +32,7 @@ public class PartnerServices {
 
     //todo: return status, not void
     public void postPartner(Partner partner) throws SQLException {
+        System.out.println("service" + partner.toString());
          new PartnerRepository().post(partner);
     }
 

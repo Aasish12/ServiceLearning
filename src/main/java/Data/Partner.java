@@ -58,4 +58,14 @@ public class Partner {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
+    @Override
+    public String toString() {
+        return "PartnerId : " + this.ID +
+                "\nCompanyName : " + this.companyName +
+                "\nFirstName : " + this.firstName +
+                "\nLastName : " + this.lastName +
+                "\nPhone : " + this.phone;
+    }
+
 }

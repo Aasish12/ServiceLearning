@@ -52,6 +52,7 @@ public class PartnerRepository extends RepositoryBase {
     }
 
     public void post(Partner newPartner) throws SQLException {
+        System.out.println("repo" + newPartner.toString());
         partnerDao.create(newPartner);
     }
 
