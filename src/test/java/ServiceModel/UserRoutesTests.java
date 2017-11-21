@@ -29,12 +29,12 @@ public class UserRoutesTests {
                 .andExpect(content().string(equalTo("NEU ServiceLearning")));
     }
 
-    @Test
+    /*@Test
     public void testGetAllUsers() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/users/all").contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType("application/json;charset=UTF-8"));
-    }
+    }*/
 
     @Test
     public void testGetNewUser() throws Exception {
