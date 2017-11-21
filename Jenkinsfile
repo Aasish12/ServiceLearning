@@ -21,7 +21,7 @@ pipeline {
 		}
 
 		stage('Deploy') {
-			when { branch 'SD103-Deploy-v2' }
+			when { branch 'master' }
 			steps {
 				checkout scm
 				echo 'Deploying...'
