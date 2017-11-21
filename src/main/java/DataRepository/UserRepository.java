@@ -28,13 +28,11 @@ public class UserRepository extends RepositoryBase {
         return userDao.queryForAll();
     }
 
-    public List<User> SearchUsers(String searchText) throws SQLException {
+    public List<User> SearchUsers(String searchColumn, String searchText) throws SQLException {
         QueryBuilder<User, String> qb = userDao.queryBuilder();
         Where<User, String> where = qb.where();
 
-        where.like("FirstName", searchText)
-                .or()
-                .like("LastName", searchText);
+        where.like(searchColumn, '%' + searchText + '%');
 
         PreparedQuery<User> preparedQuery = qb.prepare();
 
