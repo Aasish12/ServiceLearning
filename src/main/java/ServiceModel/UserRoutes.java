@@ -20,7 +20,7 @@ public class UserRoutes {
 
     @RequestMapping("/")
     public String index() {
-        return "Greetings from Spring Boot!";
+        return "NEU ServiceLearning";
     }
 
     /* Get routes */

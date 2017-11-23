@@ -1,4 +1,4 @@
-package ServiceModel.Tests;
+package ServiceModel;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -26,12 +26,20 @@ public class UserRoutesTests {
     public void getHello() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().string(equalTo("Greetings from Spring Boot!")));
+                .andExpect(content().string(equalTo("NEU ServiceLearning")));
     }
+
+    /*@Test
+    public void testGetAllUsers() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/users/all").contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType("application/json;charset=UTF-8"));
+    }*/
 
     @Test
     public void testGetNewUser() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/users/getNewUser").accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andExpect(content().contentType("application/json;charset=UTF-8"));
     }
 }
