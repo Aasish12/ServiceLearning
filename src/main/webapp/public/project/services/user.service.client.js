@@ -11,6 +11,7 @@
         };
         return api;
 
+        // not sure how to do this
         function addUser(user) {
             $http.get("/users/getNewUser")
                 .then(function(response) {
