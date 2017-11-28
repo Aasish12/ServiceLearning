@@ -16,7 +16,11 @@
             $http.get("/users/getNewUser")
                 .then(function(response) {
                     var newUser = response.data;
-                    $http.put("/users/post", newUser);
+                    // just set the fields manually from the json user object
+                    newUser.username = user.username;
+                    newUser.password = user.password;
+                    newUser.email = user.email;
+                    $http.put("/users/put", newUser);
                 });
         }
 
