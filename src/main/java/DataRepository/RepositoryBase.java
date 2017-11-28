@@ -10,6 +10,6 @@ class RepositoryBase {
     ConnectionSource db;
 
     RepositoryBase() throws SQLException {
-        db = new JdbcConnectionSource("jdbc:mysql://localhost:3306/test?user=root&password=boj75302816");
+        db = new JdbcConnectionSource("jdbc:mysql://192.168.0.4:3306/test?user=sd_sqluser&password=password");
     }
 }
