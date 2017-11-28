@@ -4,7 +4,7 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "Positions")
-public class Positions {
+public class Position {
   @DatabaseField(generatedId = true)
   private int ID;
   @DatabaseField
@@ -16,7 +16,7 @@ public class Positions {
   @DatabaseField
   private int PartnerID;
 
-  public Positions() {
+  public Position() {
   }
 
   public String getTitle() {

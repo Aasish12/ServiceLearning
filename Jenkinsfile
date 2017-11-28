@@ -27,10 +27,14 @@ pipeline {
             }
         }
 
-		stage('DeployMaster') {
+		stage('Deploy') {
 			when { branch 'master' }
 			steps {
-				echo "Hello Deploy in master."
+				checkout scm
+				echo 'Deploying...'
+				withCredentials([file(credentialsId: 'SD103_ssh_pem', variable: 'SD103_PEM_PATH')]) {
+					sh 'chmod +x deploy.sh; bash deploy.sh'
+				}
 			}
 		}
 	}
