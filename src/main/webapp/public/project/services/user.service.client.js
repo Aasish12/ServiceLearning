@@ -4,9 +4,18 @@
     function userService($http){
         var api = {
             "findUserByID": findUserByID,
-            "getAllUsers" : getAllUsers
-    }
+            "getAllUsers" : getAllUsers,
+            "addUser" : addUser
+        };
         return api;
+
+        function addUser(user) {
+            $http.get("/users/getNewUser")
+                .then(function(response) {
+                    newUser = response.data;
+                });
+            $http.put("/users/post", newUser);
+        }
 
         function findUserByID(id) {
             return $http.get("/users/getById/" + id)
