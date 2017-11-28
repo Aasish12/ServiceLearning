@@ -32,7 +32,7 @@
                 controllerAs: "model"
             })
             .when("/editHours", {
-                templateUrl: "views/employments/templates/new-employment.view.client.html",
+                templateUrl: "views/employments/templates/edit-employment.view.client.html",
                 controller:  "editEmploymentController",
                 controllerAs: "model"
             })
@@ -67,11 +67,11 @@
             .when("/unauthorized", {
                 templateUrl: "views/user/templates/unauthorized.view.client.html"
             })
-            .when("/register", {
-                templateUrl: "views/user/templates/register.view.client.html",
-                controller: "registerController",
-                controllerAs: "model"
-            })
+            // .when("/register", {
+            //     templateUrl: "views/user/templates/register.view.client.html",
+            //     controller: "registerController",
+            //     controllerAs: "model"
+            // })
             // // admin routes
             .when("/admin/courses", {
                 templateUrl:"views/admin/templates/admin-course-control.view.client.html",
