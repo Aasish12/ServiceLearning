@@ -3,21 +3,23 @@
 
     function userService($http){
         var api = {
-            "findUserByID": findUserByID,
+            "getUserByID": getUserByID,
             "getAllUsers" : getAllUsers,
-            "addUser" : addUser
+            "addUser" : addUser,
+            "editUser" : editUser,
+            "getUserByUsername" : getUserByUsername
         };
         return api;
 
         function addUser(user) {
             $http.get("/users/getNewUser")
                 .then(function(response) {
-                    newUser = response.data;
+                    var newUser = response.data;
+                    $http.put("/users/post", newUser);
                 });
-            $http.put("/users/post", newUser);
         }
 
-        function findUserByID(id) {
+        function getUserByID(id) {
             return $http.get("/users/getById/" + id)
                 .then(function(response) {
                     return response.data;
@@ -31,7 +33,12 @@
                 })
         }
 
+        function editUser(user) {
+        }
 
+        function getUserByUsername(username) {
+
+        }
 
     }
 })();

@@ -1,3 +1,5 @@
+//remove this and integrate with profile.controller.client (inline email edit option)
+
 (function () {
     angular
         .module("NEUSL")

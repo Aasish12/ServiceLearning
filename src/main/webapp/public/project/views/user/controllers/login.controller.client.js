@@ -7,14 +7,28 @@
         var model = this;
         model.login = login;
         model.onClickRegister = onClickRegister;
+        model.addUser = addUser;
 
         function init() {
             userService.getAllUsers()
                 .then(function(response) {
-                    model.allUsers = response;
+                    model.allUsers = response.data;
                 });
         }
         init();
+
+        function addUser(user) {
+            userService.getUserByUsername(user.username)
+                .then(function (_user) {
+                    if(_user === "0") {
+                        return userService.addUser(user);
+                    } else {
+                        model.error = "Username taken, choose another.";
+                    }
+                }).then(function (user) {
+                $location.url("/profile/" + user._id);
+            });
+        }
 
         function onClickRegister() {
             $('.nav a[href="#Register"]').tab('show');

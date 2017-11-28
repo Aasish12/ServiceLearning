@@ -3,11 +3,15 @@
         .module("NEUSL")
         .controller("homeController", homeController);
 
-    function homeController($window, $location, $filter) {
+    function homeController($window, $location, $filter, $routeParams, courseService, userService) {
         var model = this;
+        model.UID = $routeParams["uid"];
 
         function init() {
-            model.positions
+            userService.getUserByID(model.UID)
+                .then(function (response) {
+                    model.user = response.data;
+                });
 
         }
         init();

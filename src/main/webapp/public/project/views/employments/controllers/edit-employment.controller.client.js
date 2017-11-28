@@ -3,7 +3,7 @@
         .module("NEUSL")
         .controller("editEmploymentController", editEmploymentController);
 
-    function editEmploymentController($scope, $filter, $routeParams) {
+    function editEmploymentController($scope, $filter, $routeParams, hoursService) {
         var model = this;
         model.editEmployment = editEmployment;
 
