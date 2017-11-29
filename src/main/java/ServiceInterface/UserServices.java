@@ -16,8 +16,8 @@ public class UserServices {
         return new UserRepository().GetAllUsers();
     }
 
-    public List<User> SearchUsers(String searchText) throws SQLException {
-        return new UserRepository().SearchUsers(searchText);
+    public List<User> SearchUsers(String searchColumn, String searchText) throws SQLException {
+        return new UserRepository().SearchUsers(searchColumn, searchText);
     }
 
     public User GetById(int userId) throws SQLException {

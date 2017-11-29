@@ -5,7 +5,6 @@ import java.util.*;
 
 import Data.Partner;
 import DataRepository.PartnerRepository;
-import ServiceModel.Types.*;
 
 /*
 * Logic for Partners
