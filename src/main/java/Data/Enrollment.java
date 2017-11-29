@@ -8,9 +8,9 @@ public class Enrollment {
   @DatabaseField(generatedId = true)
   private int ID;
   @DatabaseField
-  private int EnrollementStartDate;
+  private int EnrollmentStartDate;
   @DatabaseField
-  private int EnrollementEndDate;
+  private int EnrollmentEndDate;
   @DatabaseField
   private int StudentId;
   @DatabaseField
@@ -20,19 +20,19 @@ public class Enrollment {
   }
 
   public int getEnrollementStartDate() {
-    return EnrollementStartDate;
+    return EnrollmentStartDate;
   }
 
   public void setEnrollementStartDate(int enrollementStartDate) {
-    EnrollementStartDate = enrollementStartDate;
+    EnrollmentStartDate = enrollementStartDate;
   }
 
   public int getEnrollementEndDate() {
-    return EnrollementEndDate;
+    return EnrollmentEndDate;
   }
 
   public void setEnrollementEndDate(int enrollementEndDate) {
-    EnrollementEndDate = enrollementEndDate;
+    EnrollmentEndDate = enrollementEndDate;
   }
 
   public int getStudentId() {
