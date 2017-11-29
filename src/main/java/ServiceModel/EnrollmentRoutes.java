@@ -13,6 +13,7 @@ import javax.websocket.server.PathParam;
 import Data.Enrollment;
 import ServiceInterface.EnrollmentServices;
 
+@RestController
 public class EnrollmentRoutes {
   private EnrollmentServices services = new EnrollmentServices();
 
