@@ -1,14 +1,18 @@
 package ServiceModel;
 
 import ServiceInterface.CourseServices;
-import ServiceModel.Types.CourseType;
-import org.springframework.web.bind.annotation.PathVariable;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
+import javax.websocket.server.PathParam;
 
+
+import java.sql.SQLException;
+import java.util.List;
+
+import Data.Course;
 /*
 * Course specific API route definitions.
 * GOAL: Define routes, call services to return data.
@@ -21,32 +25,34 @@ public class CourseRoutes {
 
     /* Get routes */
     @RequestMapping(value = "/courses/all", method = RequestMethod.GET)
-    public ArrayList<CourseType> getAllCourses() { return services.GetAllCourses(); }
+    public List<Course> getAllCourses() throws SQLException
+    { return services.GetAllCourses(); }
 
     @RequestMapping(value = "/courses/search/{searchText}", method = RequestMethod.GET)
-    public ArrayList<CourseType> searchCourses(@PathVariable("searchText") String searchText) {
+    public List<Course> searchCourses(@PathParam("searchText") String searchText) throws SQLException {
+
 
         return services.SearchCourses(searchText);
     }
 
     @RequestMapping(value = "/courses/getById/{courseId}", method = RequestMethod.GET)
-    public CourseType getCourseById(@PathVariable("courseId") int courseId) {
+    public Course getCourseById(@PathParam("courseId") int courseId) throws SQLException {
         return services.GetById(courseId);
     }
 
     @RequestMapping(value = "/courses/getNewCourse", method = RequestMethod.GET)
-    public CourseType getNewCourse() {
-        return new CourseType();
+    public Course getNewCourse() {
+        return new Course();
     }
 
     /* Post & Put */
     @RequestMapping(value = "/courses/post", method = RequestMethod.POST)
-    public void postNewCourse(CourseType course) {
+    public void postNewCourse(Course course) throws SQLException {
         services.PostCourse(course);
     }
 
     @RequestMapping(value = "/courses/put", method = RequestMethod.PUT)
-    public void putCourse(CourseType course) {
+    public void putCourse(Course course) throws SQLException {
         services.PutCourse(course);
     }
 }
