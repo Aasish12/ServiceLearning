@@ -1,23 +1,35 @@
 package ServiceInterface;
 
+import java.sql.SQLException;
 import java.util.*;
-import ServiceModel.Types.HoursType;
+
+import Data.Hours;
+import DataRepository.HoursRepository;
 
 /*
-* Logic for courses
+* Logic for hours
 *
 * Kofi Collins-Sibley
+* Bailey Kay
 * */
 public class HoursServices {
-    public ArrayList<HoursType> GetHoursByStudentId(int studentId) {
-        return null;
+    public List<Hours> GetAllHours() throws SQLException {
+        return new HoursRepository().GetAllHours();
     }
 
-    public ArrayList<HoursType> GetHoursByCourseId(int courseId) {
-        return null;
+    public List<Hours> getHoursByStudentId(int studentId) throws SQLException {
+        return new HoursRepository().getHoursByStudentID(studentId);
     }
 
-    public void PostHours(HoursType newHours) {
+    public List<Hours> getHoursByCourseId(int courseId) throws SQLException {
+        return new HoursRepository().getHoursByCourseID(courseId);
+    }
 
+    public void postHours(Hours newHours) throws SQLException {
+        new HoursRepository().post(newHours);
+    }
+
+    public void putHours(Hours hours) throws SQLException {
+        new HoursRepository().put(hours);
     }
 }

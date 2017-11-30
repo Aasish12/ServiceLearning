@@ -1,7 +1,10 @@
 package ServiceInterface;
 
+import java.sql.SQLException;
 import java.util.*;
-import ServiceModel.Types.*;
+
+import Data.User;
+import DataRepository.UserRepository;
 
 /*
 * Logic for users
@@ -9,27 +12,23 @@ import ServiceModel.Types.*;
 * Kofi Collins-Sibley
 * */
 public class UserServices {
-    public ArrayList<UserType> GetAllUsers() {
-        return null;
+    public List<User> GetAllUsers() throws SQLException {
+        return new UserRepository().GetAllUsers();
     }
 
-    public ArrayList<UserType> SearchUsers(String searchText) {
-        return null;
+    public List<User> SearchUsers(String searchColumn, String searchText) throws SQLException {
+        return new UserRepository().SearchUsers(searchColumn, searchText);
     }
 
-    public UserType GetById(int userId) {
-        return new UserType(userId,
-                0,
-                "test",
-                "test",
-                "test");
+    public User GetById(int userId) throws SQLException {
+        return new UserRepository().GetUserById(userId);
     }
 
-    public void PostUser(UserType newUser) {
-
+    public void PostUser(User newUser) throws SQLException {
+        new UserRepository().Post(newUser);
     }
 
-    public void PutUser(UserType user) {
-
+    public void PutUser(User user) throws SQLException {
+        new UserRepository().Put(user);
     }
 }

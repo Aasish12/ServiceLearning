@@ -48,5 +48,10 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
+<<<<<<< HEAD
 # Node Modules
 node_modules
+=======
+# MacOS specific
+**/.DS_Store
+>>>>>>> master

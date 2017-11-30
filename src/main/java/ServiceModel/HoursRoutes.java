@@ -1,47 +1,54 @@
 package ServiceModel;
 
+import Data.Hours;
 import ServiceInterface.HoursServices;
-import ServiceModel.Types.HoursType;
 
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
-import java.util.ArrayList;
+import org.springframework.web.bind.annotation.*;
+
+import java.sql.SQLException;
+import java.util.List;
 
 /*
 * Hours specific API route definitions.
 * GOAL: Define routes, call services to return data.
 *
 * Kofi Collins-Sibley
+* Bailey Kay
 * */
-@Path("/hours/")
+
+@RestController
 public class HoursRoutes {
     private HoursServices services = new HoursServices();
 
     /* Get routes */
-    @GET
-    @Path("/getHoursByStudentId/{studentId}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public ArrayList<HoursType> getHoursByStudentId(@PathParam("studentId") int studentId) {
-        return services.GetHoursByStudentId(studentId);
+    @RequestMapping(value = "/hours/all", method = RequestMethod.GET)
+    public List<Hours> getAllHours() throws SQLException {
+        return services.GetAllHours();
     }
 
-    @GET
-    @Path("/getHoursByCourseId/{courseId}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public ArrayList<HoursType> getHoursByCourseId(@PathParam("courseId") int courseId) {
-        return services.GetHoursByCourseId(courseId);
+    @RequestMapping(value = "/hours/getHoursByStudentId/{studentId}", method = RequestMethod.GET)
+    public List<Hours> getHoursByStudentId(@PathVariable("studentId") int studentId) throws SQLException {
+        return services.getHoursByStudentId(studentId);
     }
 
-    @GET
-    @Path("/getNewHours")
-    @Produces(MediaType.APPLICATION_JSON)
-    public HoursType getNewHours() { return new HoursType(); }
+    @RequestMapping(value = "/hours/getHoursByCourseId/{courseId}", method = RequestMethod.GET)
+    public List<Hours> getHoursByCourseId(@PathVariable("courseId") int courseId) throws SQLException {
+        return services.getHoursByCourseId(courseId);
+    }
+
+    @RequestMapping(value = "/hours/getNewHours", method = RequestMethod.GET)
+    public Hours getNewHours() {
+        return new Hours();
+    }
 
     /* Post & Put */
-    @POST
-    @Path("/post")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public void recordNewHours(HoursType hours) {
-        services.PostHours(hours);
+    @RequestMapping(value = "/hours/post", method = RequestMethod.POST)
+    public void postNewHours(Hours hours) throws SQLException {
+        services.postHours(hours);
+    }
+
+    @RequestMapping(value = "/hours/put", method = RequestMethod.PUT)
+    public void putHours(Hours hours) throws SQLException {
+        services.putHours(hours);
     }
 }
