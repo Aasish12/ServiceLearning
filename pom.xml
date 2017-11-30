@@ -69,6 +69,7 @@
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest-library</artifactId>
         </dependency>
+
     </dependencies>
 
     <properties>
@@ -81,7 +82,57 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+        <plugin>
+            <groupId>com.github.eirslett</groupId>
+            <artifactId>frontend-maven-plugin</artifactId>
+            <version>1.4</version>
+            <configuration>
+                <workingDirectory>src/main/webapp</workingDirectory>
+            </configuration>
+                    <executions>
+                        <execution>
+                            <id>install-node-npm</id>
+                            <goals>
+                                <goal>install-node-and-npm</goal>
+                            </goals>
+                            <configuration>
+                                <nodeVersion>v6.1.0</nodeVersion>
+                                <npmVersion>3.10.10</npmVersion>
+                            </configuration>
+                        </execution>
+
+                        <execution>
+                            <id>npm install</id>
+                            <goals>
+                                <goal>npm</goal>
+                            </goals>
+                            <configuration>
+                                <arguments>install</arguments>
+                            </configuration>
+                        </execution>
+
+                        <!-- It will execute command "npm build" inside "/angular" directory to clean and create "/dist" directory-->
+                        <execution>
+                            <id>npm build</id>
+                            <goals>
+                                <goal>npm</goal>
+                            </goals>
+                            <configuration>
+                                <arguments>run build</arguments>
+                            </configuration>
+                        </execution>
+
+                    </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+                </configuration>
+            </plugin>
         </plugins>
         <testSourceDirectory>src/main/java/ServiceModel/Tests</testSourceDirectory>
     </build>
+
+
 </project>
