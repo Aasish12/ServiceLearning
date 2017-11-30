@@ -1,24 +1,21 @@
 package ServiceModel;
 
+import static org.hamcrest.Matchers.equalTo;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 import Data.Hours;
-import ServiceInterface.HoursServices;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.mock.http.MockHttpOutputMessage;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import static org.junit.Assert.assertNotNull;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import org.springframework.http.converter.json.*;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -31,13 +28,11 @@ public class HoursRoutesTests {
     @Autowired
     private MockMvc mvc;
 
-    @Mock
-    private HoursServices hoursServices;
-
     @Test
     public void testGetAllHours() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/hours/all").accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andExpect(content().contentType("application/json;charset=UTF-8"));
     }
 
     @Test
@@ -57,13 +52,13 @@ public class HoursRoutesTests {
     @Test
     public void testGetNewHours() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/hours/getNewHours")
-                .accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
+                .accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk())
+                .andExpect(content().contentType("application/json;charset=UTF-8"));
     }
 
+    /*
     @Test
     public void testPostNewHours() throws Exception {
-        Hours hours = new Hours(2017, 2017, 3, 2, 1, 3,
-                1, 1, "", 2);
         mvc.perform(MockMvcRequestBuilders.post("/hours/post")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isCreated());
@@ -71,7 +66,28 @@ public class HoursRoutesTests {
 
     @Test
     public void testPutNewHours() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.put("/users/put")
-                .accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
+        ObjectMapper mapper = new ObjectMapper();
+
+        Hours hours = new Hours();
+        hours.setInTime(3);
+        hours.setOutTime(5);
+        hours.setHours(2);
+        hours.setStudentId(3);
+        hours.setPositionId(2);
+        hours.setPartnerId(1);
+        hours.setProfessorId(5);
+        hours.setCourseID(2);
+        hours.setResponses("");
+        hours.setLocationId(3);
+
+        String json = mapper.writeValueAsString(hours);
+        System.out.println(json);
+
+        mvc.perform(MockMvcRequestBuilders
+                .put("/hours/put", json)
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andReturn();
     }
+    */
 }
