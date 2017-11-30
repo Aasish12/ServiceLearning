@@ -10,7 +10,7 @@ public class Employment {
   @DatabaseField
   private int EmploymentStartDate;
   @DatabaseField
-  private int EmploymentrEndDate;
+  private int EmploymentEndDate;
   @DatabaseField
   private int StudentId;
   @DatabaseField
@@ -28,11 +28,11 @@ public class Employment {
   }
 
   public int getEmploymentrEndDate() {
-    return EmploymentrEndDate;
+    return EmploymentEndDate;
   }
 
   public void setEmploymentrEndDate(int employmentrEndDate) {
-    EmploymentrEndDate = employmentrEndDate;
+    EmploymentEndDate = employmentrEndDate;
   }
 
   public int getStudentId() {
