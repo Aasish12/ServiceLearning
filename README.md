@@ -53,9 +53,9 @@ Section 1 - Team 3
  - Click 'OK' to create run configuration
  - Run your local server by clicking the play icon in the top right (Shift+F10 on windows)
 
-- **SCP File to Web Server** 
+**SCP File to Web Server** 
 
-- **Run Jar**
+**Run Jar**
 
 ### Resources
 * Jira: https://cs5500-jira.ccs.neu.edu/projects/SD103/ 
